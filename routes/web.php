@@ -112,7 +112,7 @@ Route::post('store-online-register-file', [FileManagerController::class, 'storeO
 Route::get('online-search-posters', [PosterController::class, 'searchPostersPage'])->name('searchPostersPage');
 
 //routes for user login
-Route::group(['middleware' => ['auth', 'ensureStatusActive']], function () {
+Route::group(['middleware' => ['auth', 'check.inscription','ensureStatusActive']], function () {
 
     //Ejecutar migración
     Route::get('/ejecutar-migraciones', function () {
@@ -147,6 +147,10 @@ Route::group(['middleware' => ['auth', 'ensureStatusActive']], function () {
     Route::get('inscriptions-rejects', [InscriptionController::class, 'indexRejects'])->name('inscriptions.rejects');
     Route::post('/inscriptions-request-comprobante/{id}', [InscriptionController::class, 'requestComprobante'])->name('inscriptions.requestcomprobante');
     Route::get('/exportar-excel-inscriptions', [InscriptionController::class, 'exportExcelInscriptions'])->name('inscriptions.exportexcel');
+
+
+    Route::get('/my-inscription', [InscriptionController::class, 'registerMyInscription'])->name('inscriptions.myinscription');
+    Route::post('/store-my-inscription', [InscriptionController::class, 'storeMyInscription'])->name('inscriptions.storemyinscription');
 
     Route::get('/manual-registration-participant', [InscriptionController::class, 'formManualRegistrationParticipant'])->name('inscriptions.manualregistrationparticipant');
     Route::post('/store-manual-registration-participant', [InscriptionController::class, 'storeManualRegistrationParticipant'])->name('inscriptions.storemanualregistrationparticipant');

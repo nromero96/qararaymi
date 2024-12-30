@@ -599,6 +599,217 @@ class InscriptionController extends Controller
     }
 
 
+    public function registerMyInscription(){
+
+        //verificar si el usuario ya tiene una inscripción
+        $inscription = Inscription::where('user_id', \Auth::user()->id)->first();
+        if($inscription){
+            return redirect()->route('inscriptions.index')->with('error', 'Ya tiene una inscripción, revise su inscripción en la sección de inscripciones');
+        }
+
+        $id = \Auth::user()->id;
+
+        $data = [
+            'category_name' => 'inscriptions',
+            'page_name' => 'inscriptions_myinscription',
+            'has_scrollspy' => 0,
+            'scrollspy_offset' => '',
+        ];
+
+        //get CategoryInscription
+        $category_inscriptions = CategoryInscription::orderBy('order', 'asc')->get();
+        $countries = Country::orderBy('name', 'asc')->get();
+
+        $user = User::find($id);
+
+        //verificar si usuario logeado es BeneficiarioBeca por email tru o false
+        $beneficiariobeca = BeneficiarioBeca::where('email', $user->email)->first();
+        if($beneficiariobeca){
+            $data['beneficiariobeca'] = 'si';
+        }else{
+            $data['beneficiariobeca'] = 'no';
+        }
+
+        //verificar si tengo alguna inscripcion
+        $myinscription = Inscription::where('user_id', $id);
+
+        //solo los roles de Administrador y Secretaria pueden ver esta vista
+        if ($myinscription) {
+            return view('pages.inscriptions.my-inscription')->with($data)->with('category_inscriptions', $category_inscriptions)->with('countries', $countries)->with('beneficiariobeca', $beneficiariobeca)->with('user', $user);
+        }else{
+            return redirect()->route('inscriptions.index')->with('error', 'Ya tiene una inscripción, revise su inscripción en la sección de inscripciones');
+        }
+    }
+
+    public function storeMyInscription(Request $request){
+
+        //get logged user id
+        $iduser = \Auth::user()->id;
+
+        Log::info('Datos de la inscripción: '.json_encode($request->all()));
+
+
+        //Datos de la inscripción: {"_token":"FXRvSF1L7B6m9MNI9Askne0SC0GaGp64k6ftBVqQ","name":"NILTO","lastname":"ROMERO","second_lastname":"AGURTO","document_type":"DNI","document_number":"71213062","country":"Alemania","state":"Liam","city":"Citi","address":"Calle Uno 133","postal_code":"3432","phone_code":"51","phone_code_city":"01","phone_number":"987654321","whatsapp_code":"51","whatsapp_number":"98283976","workplace":"ExcelData","email":"niltonromagu@gmail.com","inputSolapin":"ROM NIL","category_inscription_id":"4","specialcode":null,"specialcode_verify":null,"accompanist_name":null,"accompanist_typedocument":"Seleccione...","accompanist_numdocument":null,"accompanist_solapin":null,"invoice":"no","invoice_ruc":null,"invoice_social_reason":null,"invoice_address":null,"payment_method":"Tarjeta"}  
+
+
+        //validar datos
+        $validatedData = request()->validate([
+            //data user
+            'name' => 'required|string',
+            'lastname' => 'required|string',
+            'second_lastname' => 'nullable|string',
+            'email' => 'required|email',
+            'document_type' => 'required|string',
+            'document_number' => 'required|string',
+            'country' => 'required|string',
+            'state' => 'required|string',
+            'city' => 'required|string',
+            'address' => 'required|string',
+            'postal_code' => 'required|string',
+            'phone_code' => 'required|string',
+            'phone_code_city' => 'required|string',
+            'phone_number' => 'required|string',
+            'whatsapp_code' => 'required|string',
+            'whatsapp_number' => 'required|string',
+            'workplace' => 'required|string',
+            'solapin_name' => 'required|string',
+            //data inscription
+            'category_inscription_id' => 'required|numeric',
+            'specialcode' => 'nullable|string',
+            'specialcode_verify' => 'nullable|string',
+            'accompanist_name' => 'nullable|string',
+            'accompanist_typedocument' => 'nullable|string',
+            'accompanist_numdocument' => 'nullable|string',
+            'accompanist_solapin' => 'nullable|string',
+            'invoice' => 'required|string',
+            'invoice_ruc' => 'nullable|string',
+            'invoice_social_reason' => 'nullable|string',
+            'invoice_address' => 'nullable|string',
+            'payment_method' => 'required|string',
+        ]);
+
+        DB::beginTransaction();
+
+        try {
+            // Actualizar usuario
+            $user = User::find($iduser);
+            $user->name = $request->name;
+            $user->lastname = $request->lastname;
+            $user->second_lastname = $request->second_lastname;
+            $user->email = $request->email;
+            $user->document_type = $request->document_type;
+            $user->document_number = $request->document_number;
+            $user->country = $request->country;
+            $user->state = $request->state;
+            $user->city = $request->city;
+            $user->address = $request->address;
+            $user->postal_code = $request->postal_code;
+            $user->phone_code = $request->phone_code;
+            $user->phone_code_city = $request->phone_code_city;
+            $user->phone_number = $request->phone_number;
+            $user->whatsapp_code = $request->whatsapp_code;
+            $user->whatsapp_number = $request->whatsapp_number;
+            $user->workplace = $request->workplace;
+            $user->solapin_name = $request->solapin_name;
+            $user->confir_information = 'si';
+            $user->save();
+            
+            // Insertar inscripción
+            $inscription = new Inscription();
+            $inscription->user_id = $iduser;
+            $inscription->category_inscription_id = $request->category_inscription_id;
+
+            $category_inscription = CategoryInscription::find($request->category_inscription_id);
+
+            $inscription->price_category = $category_inscription->price;
+            $inscription->price_accompanist = 0;
+            $inscription->total = $inscription->price_category + $inscription->price_accompanist;
+            $inscription->special_code = $request->specialcode;
+            $inscription->invoice = $request->invoice;
+            $inscription->invoice_ruc = $request->invoice_ruc;
+            $inscription->invoice_social_reason = $request->invoice_social_reason;
+            $inscription->invoice_address = $request->invoice_address;
+            $inscription->payment_method = $request->payment_method;
+
+            $inscription->save();
+
+            // Manejo de documentos temporales
+            $documentFile = trim($request->document_file, '[]"');
+            $temporaryfile_document_file = TemporaryFile::where('folder', $documentFile)->first();
+            if ($temporaryfile_document_file) {
+                Storage::move('public/uploads/tmp/'.$documentFile.'/'.$temporaryfile_document_file->filename, 'public/uploads/document_file/'.$temporaryfile_document_file->filename);
+                $inscription->document_file = $temporaryfile_document_file->filename;
+                $inscription->save();
+                rmdir(storage_path('app/public/uploads/tmp/'.$documentFile));
+                $temporaryfile_document_file->delete();
+            }
+
+            $voucherFile = trim($request->voucher_file, '[]"');
+            $temporaryfile_voucher_file = TemporaryFile::where('folder', $voucherFile)->first();
+            if ($temporaryfile_voucher_file) {
+                Storage::move('public/uploads/tmp/'.$voucherFile.'/'.$temporaryfile_voucher_file->filename, 'public/uploads/voucher_file/'.$temporaryfile_voucher_file->filename);
+                $inscription->voucher_file = $temporaryfile_voucher_file->filename;
+                $inscription->save();
+                rmdir(storage_path('app/public/uploads/tmp/'.$voucherFile));
+                $temporaryfile_voucher_file->delete();
+            }
+
+            if ($request->payment_method == 'Transferencia/Depósito') {
+                $inscription->status = 'Procesando';
+                $inscription->save();
+
+                // Enviar correo
+                $user = User::find($iduser);
+                $datainscription = Inscription::join('category_inscriptions', 'inscriptions.category_inscription_id', '=', 'category_inscriptions.id')
+                    ->select('inscriptions.*', 'category_inscriptions.name as category_inscription_name')
+                    ->where('inscriptions.id', $inscription->id)
+                    ->first();
+                $data = [
+                    'user' => $user,
+                    'datainscription' => $datainscription,
+                ];
+
+                Mail::to($user->email)
+                    ->cc(config('services.correonotificacion.inscripcion'))
+                    ->send(new \App\Mail\InscriptionCreated($data));
+
+                DB::commit();
+
+                return redirect()->route('inscriptions.index')->with('success', 'Inscripción realizada con éxito, validaremos tu información en breve');
+            } else if ($request->payment_method == 'Tarjeta') {
+                $inscription->status = 'Pendiente';
+                $inscription->save();
+
+                // Enviar correo
+                $user = User::find($iduser);
+                $datainscription = Inscription::join('category_inscriptions', 'inscriptions.category_inscription_id', '=', 'category_inscriptions.id')
+                    ->select('inscriptions.*', 'category_inscriptions.name as category_inscription_name')
+                    ->where('inscriptions.id', $inscription->id)
+                    ->first();
+                $data = [
+                    'user' => $user,
+                    'datainscription' => $datainscription,
+                ];
+
+                Mail::to($user->email)
+                    ->cc(config('services.correonotificacion.inscripcion'))
+                    ->send(new \App\Mail\InscriptionCreated($data));
+
+                DB::commit();
+
+                return redirect()->route('inscriptions.show', ['inscription' => $inscription->id])->with('success', 'Inscripción realizada con éxito, validaremos tu información en breve');
+            }
+
+        } catch (\Exception $e) {
+            DB::rollBack();
+            Log::error('Error al registrar inscripción: '.$e->getMessage());
+            return redirect()->route('inscriptions.myinscription')->with('error', 'Error al registrar inscripción');
+        }
+
+
+    }
+
+
     public function formManualRegistrationParticipant(){
         $id = \Auth::user()->id;
 

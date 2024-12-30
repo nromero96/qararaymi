@@ -46,8 +46,8 @@
                         <div class="auth-overlay" style="background-image: url({{asset('assets/img/bg-lg-1-min.jpg')}});background-size: cover;"></div>
                         <div class="auth-cover">
                             <div class="position-relative">
-                                <h2 class="mt-5 text-white px-2" style="font-weight: bold;">{{__('23º Congreso Peruano de Cirugía Plástica')}}</h2>
-                                <p class="text-white">{{ __('Swissôtel Lima, 06 al 09 de Noviembre del 2024') }}</p>
+                                <h2 class="mt-5 text-white px-2" style="font-weight: bold;">Q’ARA RAYMI 2025</h2>
+                                <p class="text-white">{{ __('Swissôtel Lima, del 26 al 30 de agosto 2025') }}</p>
                             </div>
                         </div>
 
@@ -58,10 +58,10 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-12 mb-3">
-                                        <div class="text-end">
+                                        {{-- <div class="text-end">
                                             <a href="locale/es" class="" ><span class="badge {{ (app()->getLocale() == 'es') ? 'badge-light-primary' : 'badge-light-dark' }}">ES</span></span></a>
                                             <a href="locale/en" class="" ><span class="badge {{ (app()->getLocale() == 'en') ? 'badge-light-primary' : 'badge-light-dark' }}">EN</span></span></a>
-                                        </div>
+                                        </div> --}}
                                         <h2>{{ __('Acceso') }}</h2>
                                         <p>{{ __('Ingrese su correo electrónico y contraseña.') }}</p>
                                     </div>

@@ -12,7 +12,7 @@
                 <div class="card mb-3 mb-sm-3">
                     <div class="card-body">
                         <h5 class="card-title">{{__("Hola,")}} <b>{{ Auth::user()->name }}</b></h5>
-                        <p class="card-text">{{__("23º Congreso Peruano de Cirugía Plástica")}}</p>
+                        <p class="card-text">{{__("Q’ARA RAYMI 2025")}}</p>
                         
                         @if($myinscription)
                             <a href="{{ route('gafetes.gafeteforparticipant',$myinscription->id) }}" class="btn btn-primary px-2 py-1" target="_blank">
@@ -54,7 +54,7 @@
                       <div id="contador" class="d-flex mb-1">
                           <div class="text-white"><span id="dias" style="font-size: 25px;font-weight: bolder;"></span> <small style="font-size: 15px;">DÍAS Y </small><span id="horas" style="font-size: 25px;font-weight: bolder;"></span> <small style="font-size: 15px;">HORAS</small></div>
                       </div>
-                      <a href="https://sociedadperuanadecirugiaplastica.com/congreso/programa-preliminar/" target="_blank" class="btn btn-light text-dark"><b>VER PROGRAMA</b></a>
+                      <a href="#" target="_blank" class="btn btn-light text-dark"><b>VER PROGRAMA</b></a>
                     </div>
                   </div>
             </div>

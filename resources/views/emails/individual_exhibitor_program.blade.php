@@ -10,12 +10,12 @@
         </p>
 
         <h1 style="color: #c00000;font-size: 23px;text-align: center;line-height: 23px;font-family: arial;">
-            XLI REUNIÓN ANUAL DE DERMATÓLOGOS LATINOAMERICANOS<br>
-            <span style="display: block; font-size: 19px; margin-top: 2px; color:black;font-weight: normal;">Swissôtel Lima, 8 al 11 de Mayo de 2024</span>
+            IX Q’ARA RAYMI 2025<br>
+            <span style="display: block; font-size: 19px; margin-top: 2px; color:black;font-weight: normal;">Swissôtel Lima, del 26 al 30 de agosto 2025</span>
         </h1>
         <div style="color: white; height: 20px;">-</div>
         <p style="font-size: 14px;">
-            Lima, 22 de Abril de 2024
+            Lima, 22 de Enero de 2025
         </p>
         <div style="color: white; height: 1px;">-</div>
         <p style="font-size: 14px;">
@@ -26,7 +26,7 @@
         </p>
 
         <p style="font-size: 14px;">
-            Este es un gentil recordatorio de la agenda de sus presentaciones en RADLA LIMA 2024.
+            Este es un gentil recordatorio de la agenda de sus presentaciones en IX Q’ARA RAYMI 2025.
         </p>
 
         <table style="width:100%;text-align: left; font-size: 14px;">
@@ -53,11 +53,11 @@
         </p>
 
         <p style="font-size: 14px;">
-            Igualmente, puede ver en su perfil de usuario de RADLA LIMA 2024 su agenda personalizada con todas las sesiones científicas en las que participa.
+            Igualmente, puede ver en su perfil de usuario de Q’ARA RAYMI 2025 su agenda personalizada con todas las sesiones científicas en las que participa.
         </p>
 
         <p style="font-size: 14px;">
-            Sea propicia la ocasión para reiterarle nuestro agradecimiento por su contribución al desarrollo de RADLA LIMA 2024.
+            Sea propicia la ocasión para reiterarle nuestro agradecimiento por su contribución al desarrollo de Q’ARA RAYMI 2025.
         </p>
 
         <p style="font-size: 14px;">
@@ -68,8 +68,8 @@
 
         <p style="font-size: 14px; margin-bottom: 0px;">
             <b>COMITÉ ORGANIZADOR</b><br>
-            RADLA LIMA 2024<br>
-            <u>www.radla2024.org</u>
+            Q’ARA RAYMI 2025<br>
+            <u>www.qararaymi.org</u>
         </p>
     </div>
 </body>

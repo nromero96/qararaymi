@@ -17,28 +17,121 @@
                     $userRole = $user->roles->pluck('name')->toArray();
                 @endphp
 
-                @if($user->confir_information == '' && $userRole[0] != 'Administrador')
-                    <div class="alert alert-danger text-center" role="alert">
-                        <strong>{{__("¡Atención!")}}</strong> {{__("Debes completar tu información personal para poder inscribirte.")}}<br><br>
-                        <a href="{{ route('users.myprofile') }}" class="btn btn-primary mb-4 ms-3 me-3">{{__("Completar Información")}}</a>
-                    </div>
-                @else
-
-                    @if(session('success'))
+                @if(session('success'))
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
                             <strong>{{__("¡Bien hecho!")}}</strong>
                             {{ session('success') }}
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
-                    @endif
+                @endif
 
-                    @if(session('error'))
+                @if(session('error'))
                         <div class="alert alert-danger alert-dismissible fade show" role="alert">
                             <strong>{{__("¡Atención!")}}</strong>
                             {{ session('error') }}
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
-                    @endif
+                @endif
+
+
+                @if($userRole[0] == 'Participante')
+
+                    @foreach ($inscriptions as $inscription)
+                        <div class="card mb-3 mb-sm-3">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-2 position-relative">
+                                        <h5>ID: # <a href="{{ route('inscriptions.show', $inscription->id)}}" class="text-info">{{$inscription->id}}</a></h5>
+
+                                        <div class="btn-vert-detalle">
+                                            <a href="{{ route('inscriptions.show', $inscription->id)}}" class="btn btn-primary">Ver Detalle</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <h5>
+                                            {{$inscription->user_name.' '.$inscription->user_lastname.' '.$inscription->user_second_lastname}}
+                                        </h5>
+                                        <p>
+                                            {{$inscription->user_country}}
+                                        </p>
+                                        <p>
+                                            {{$inscription->category_inscription_name}}
+                                        </p>
+                                        <p>
+                                            US$ {{$inscription->total}}
+                                        </p>
+
+                                        
+
+                                        @php
+                                                            if($inscription->payment_method == 'Tarjeta'){
+                                                                $textmp = 'TC';
+                                                            }else{
+                                                                $textmp = 'DT';
+                                                            }
+                                                        @endphp
+
+                                                        @if($inscription->status == 'Pagado')
+                                                            
+                                                            @if($inscription->status_compr == 'Informado')
+
+                                                                <hr>
+                                                                @if($inscription->compr_pdf == 'T')
+                                                                    <a href="{{ asset('storage/uploads/comprobantes_file').'/'.$inscription->num_compr.'.pdf'}}" target="_blank" class="text-info">{{__("PDF")}}</a>
+                                                                @endif
+
+                                                                @if($inscription->compr_xml == 'T')
+                                                                | <a href="{{ asset('storage/uploads/comprobantes_file').'/'.$inscription->num_compr.'.zip'}}" target="_blank" class="text-info">{{__("XML")}}</a>
+                                                                @endif
+
+                                                                @if($inscription->compr_cdr == 'T')
+                                                                | <a href="{{ asset('storage/uploads/comprobantes_file').'/R'.$inscription->num_compr.'.zip'}}" target="_blank" class="text-info">{{__("CDR")}}</a>
+                                                                @endif
+
+                                                            @endif
+
+                                                        @endif
+
+                                        
+
+                                                        
+
+                                    </div>
+                                    <div  class="col-md-2 position-relative">
+
+                                        @php
+                                                            if($inscription->payment_method == 'Tarjeta'){
+                                                                $textmp = 'TC';
+                                                            }else{
+                                                                $textmp = 'DT';
+                                                            }
+                                                        @endphp
+
+                                                        @if($inscription->status == 'Pagado')
+                                                            <span class="badge badge-light-success">{{ $inscription->status .' ('.$textmp.')' }}</span>
+                                                        @elseif ($inscription->status == 'Procesando')
+                                                            <span class="badge badge-light-info">{{ $inscription->status .' ('.$textmp.')' }}</span>
+                                                        @elseif ($inscription->status == 'Pendiente')
+                                                            <span class="badge badge-light-warning">{{ $inscription->status .' ('.$textmp.')' }}</span>
+                                                            @if($inscription->payment_method == 'Tarjeta' && $inscription->total > 0 && ($inscription->special_code == '' || $inscription->price_accompanist > 0 || $inscription->special_code == 'PAXROSMAR') )
+                                                                {{-- <a href="{{ route('inscriptions.paymentniubiz', $inscription->id) }}" class="btn btn-primary me-1 btn-sm px-2 py-1">{{__("Pagar")}}</a> --}}
+                                                            @endif
+                                                        @elseif ($inscription->status == 'Rechazado')
+                                                            <span class="badge badge-light-danger">{{ $inscription->status .' ('.$textmp.')' }}</span>
+                                                        @endif
+                                        
+                                        <div class="date-created-inscrip">
+                                            <hr>
+                                            {{ $inscription->created_at }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+
+
+                @else
                     <div class="statbox widget box box-shadow">
                         <div class="widget-header pb-2 pt-2">
                             <form action="{{ route('inscriptions.index') }}" method="GET" class="mb-0" >
@@ -206,7 +299,6 @@
                         </div>
                     </div>
                 @endif
-
             </div>
         </div>
 

@@ -10,7 +10,7 @@
                     </a>
                 </div>
                 <div class="nav-item theme-text text-center">
-                    <a href="{{ route('dashboard.index') }}" class="nav-link">23º CON. CP</a>
+                    <a href="{{ route('dashboard.index') }}" class="nav-link">Q’ARARAYMI</a>
                 </div>
             </div>
             <div class="nav-item sidebar-toggle">

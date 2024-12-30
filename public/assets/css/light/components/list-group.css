@@ -21,13 +21,13 @@
 }
 .list-group-item.active {
   color: #fff;
-  background-color: #8F2829;
+  background-color: #009bde;
   border-color: transparent;
   box-shadow: 0 1px 15px 1px rgba(52, 40, 104, 0.15);
 }
 .list-group-item.active:hover, .list-group-item.active:focus {
   color: #e0e6ed;
-  background-color: #8F2829;
+  background-color: #009bde;
   box-shadow: 0px 0px 12px 1px rgba(113, 106, 202, 0.08);
 }
 .list-group-item.disabled, .list-group-item:disabled {
@@ -70,7 +70,7 @@ code {
 }
 .list-group.list-group-icons-meta .list-group-item .media svg {
   width: 20px;
-  color: #0F3567;
+  color: #00932d;
   height: 20px;
 }
 .list-group.list-group-icons-meta .list-group-item .media .media-body h6 {
@@ -91,7 +91,7 @@ code {
   font-weight: 500;
 }
 .list-group.list-group-media .list-group-item .media img {
-  color: #0F3567;
+  color: #00932d;
   width: 42px;
   height: 42px;
 }

@@ -22,6 +22,16 @@ html {
     font-size: 12px;
 }
 
+.btn-vert-detalle{
+  position: absolute;
+  bottom: 0px;
+}
+
+.date-created-inscrip{
+  position: absolute;
+  bottom: 0px;
+}
+
 .uploadareaposter{
   background: #fff7f7;
   border: 1px solid #e8e8e8;
@@ -620,6 +630,17 @@ span {
       margin-bottom: 15px;
     }
   }
+
+  .btn-vert-detalle{
+    position: initial;
+    bottom: 0px;
+  }
+  
+  .date-created-inscrip{
+    position: initial;
+    bottom: 0px;
+  }
+
 }
 
 /*      Form Group Label       */
@@ -1491,7 +1512,7 @@ select.form-control.form-custom {
   color: #fff !important;
   background-color: $primary !important;
   border-color: $primary;
-  box-shadow: 0 10px 20px -10px rgba(192, 0, 0, 0.59);
+  box-shadow: 0 10px 20px -10px rgb(0 147 45 / 62%);
 
   &:hover, &:focus {
     color: #fff !important;
@@ -3744,11 +3765,6 @@ fieldset:disabled .btn {
     margin-right: 0;
     display: inline-flex;
     margin-bottom: 0;
-  }
-
-  .form-check-input {
-    background-color: #bfc9d4;
-    border-color: #bfc9d4;
   }
   
   thead {

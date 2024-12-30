@@ -115,7 +115,7 @@
   border: 1px solid #e0e6ed;
   width: 43px;
   height: 41px;
-  color: #0F3567;
+  color: #00932d;
   fill: none;
 }
 .searchable-container #btn-add-contact:hover {
@@ -149,7 +149,7 @@
   font-weight: 600;
 }
 .searchable-container .switch .view-grid:hover, .searchable-container .switch .view-list:hover, .searchable-container .switch .active-view {
-  color: #0F3567;
+  color: #00932d;
   fill: none;
 }
 .searchable-container .searchable-items.list .items.items-header-section h4 {
@@ -207,7 +207,7 @@
   fill: #fff;
 }
 .searchable-container .searchable-items.list .items .item-content:hover .user-meta-info .user-name, .searchable-container .searchable-items.list .items .item-content:hover .user-email p, .searchable-container .searchable-items.list .items .item-content:hover .user-location p, .searchable-container .searchable-items.list .items .item-content:hover .user-phone p {
-  color: #0F3567;
+  color: #00932d;
 }
 .searchable-container .searchable-items.list .items .user-profile {
   display: flex;

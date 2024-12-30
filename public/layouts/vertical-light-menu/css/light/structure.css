@@ -474,7 +474,7 @@ body .navbar .dark-mode, body:not(.dark) .navbar .dark-mode {
   color: #515365;
 }
 .navbar .navbar-item .nav-item.dropdown.notification-dropdown .dropdown-menu .dropdown-item:hover .data-info h6 {
-  color: #0F3567;
+  color: #00932d;
 }
 .navbar .navbar-item .nav-item.dropdown.notification-dropdown .dropdown-menu .data-info p {
   margin-bottom: 0;
@@ -689,7 +689,7 @@ body .navbar .dark-mode, body:not(.dark) .navbar .dark-mode {
   font-size: 13px;
   font-weight: 500;
   margin-bottom: 0;
-  color: #0F3567;
+  color: #00932d;
 }
 .navbar .navbar-item .nav-item.dropdown.user-profile-dropdown .nav-link:after {
   display: none;
@@ -714,7 +714,7 @@ body .navbar .dark-mode, body:not(.dark) .navbar .dark-mode {
   border-radius: 8px;
 }
 .navbar .navbar-item .nav-item.user-profile-dropdown .dropdown-menu .dropdown-item:hover a {
-  color: #0F3567;
+  color: #00932d;
   background: #ebedf2;
 }
 .navbar .navbar-item .nav-item.user-profile-dropdown .dropdown-menu .dropdown-item.active, .navbar .navbar-item .nav-item.user-profile-dropdown .dropdown-menu .dropdown-item:active {
@@ -869,7 +869,7 @@ body .navbar .dark-mode, body:not(.dark) .navbar .dark-mode {
   font-size: 24px !important;
   color: #191e3a !important;
   line-height: 2.75rem;
-  padding: 0.39rem 0.8rem;
+  padding: 0.39rem 0.4rem;
   text-transform: initial;
   position: unset;
   font-weight: 700;
@@ -1020,7 +1020,7 @@ body .navbar .dark-mode, body:not(.dark) .navbar .dark-mode {
   stroke-width: 1.8;
 }
 #sidebar ul.menu-categories li.menu.active > .dropdown-toggle {
-  background-color: #0F3567;
+  background-color: #00932d;
 }
 #sidebar ul.menu-categories li.menu.active > .dropdown-toggle svg, #sidebar ul.menu-categories li.menu.active > .dropdown-toggle span {
   color: #fff;
@@ -1062,10 +1062,10 @@ body .navbar .dark-mode, body:not(.dark) .navbar .dark-mode {
   fill: rgba(67, 97, 238, 0.0392156863);
 }
 #sidebar ul.menu-categories li.menu > .dropdown-toggle:hover {
-  color: #0F3567;
+  color: #00932d;
 }
 #sidebar ul.menu-categories li.menu > .dropdown-toggle:hover svg:not(.badge-icon) {
-  color: #0F3567;
+  color: #00932d;
   fill: rgba(67, 97, 238, 0.0392156863);
 }
 #sidebar ul.menu-categories li.menu > .dropdown-toggle svg.feather-chevron-right {
@@ -1096,10 +1096,10 @@ body .navbar .dark-mode, body:not(.dark) .navbar .dark-mode {
   border-radius: 50%;
 }
 #sidebar ul.menu-categories li.menu ul.submenu > li a:hover {
-  color: #0F3567;
+  color: #00932d;
 }
 #sidebar ul.menu-categories li.menu ul.submenu > li a:hover:before {
-  background: #0F3567 !important;
+  background: #00932d !important;
   box-shadow: 0 0 0px 2px rgba(192, 0, 0, 0.431372549);
   border: 1.9px solid #ffffff;
 }
@@ -1141,10 +1141,10 @@ body .navbar .dark-mode, body:not(.dark) .navbar .dark-mode {
   top: 1px;
 }
 #sidebar ul.menu-categories ul.submenu > li a:hover {
-  color: #0F3567;
+  color: #00932d;
 }
 #sidebar ul.menu-categories ul.submenu > li a:hover:before {
-  background-color: #0F3567;
+  background-color: #00932d;
 }
 #sidebar ul.menu-categories ul.submenu > li a i {
   align-self: center;

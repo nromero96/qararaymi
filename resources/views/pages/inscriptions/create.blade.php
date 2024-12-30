@@ -239,7 +239,7 @@
 
                                     <div class="text-center">
 
-                                        <p class="text-center">BENEFICIARIO: <b>SOCIEDAD DE CIRUGIA PLASTICA RECONSTRUCTIVA Y ESTETICA DEL PERU SRL</b> - <b>RUC 20417453475</b></p>
+                                        <p class="text-center">BENEFICIARIO: <b>CÍRCULO DERMATOLÓGICO DEL PERÚ</b> - <b>RUC 20258221371</b></p>
 
                                         <div class="form-check form-check-primary form-check-inline">
                                             <input class="form-check-input cursor-pointer" type="radio" name="payment_method" value="Transferencia/Depósito" id="payment_method_transfer" checked>
@@ -257,11 +257,11 @@
                                     </div>
 
                                     <div id="dv_tranfer" class="mt-3">
-                                        <p class="text-center"><img src="{{ asset('assets/img/Interbank_logo.png') }}" style="width: 180px;border-radius: 10px;"></p>
-                                        <h5 class="text-center"><b>122-3001576538</b></h5>
+                                        <p class="text-center"><img src="{{ asset('assets/img/scotiabank.png') }}" style="width: 180px;border-radius: 10px;"></p>
                                         <p class="text-center">
-                                            <b>Cta. Cte. Dólares:</b> 122-3001576538<br>
-                                            <b>CCI:</b> 003-122-003001576538-98<br>
+                                            <b>Cta. Cte. Dólares:</b> 0002920669<br>
+                                            <b>CCI:</b> 009-043-000002920669-15<br>
+                                            <b>Código SWIFT:</b> BSUDPEPL<br>
                                         </p>
                                         <div class="row">
                                             <div class="col-md-2"></div>

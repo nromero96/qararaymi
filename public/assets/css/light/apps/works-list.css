@@ -94,7 +94,7 @@ table.dataTable {
   border-top-left-radius: 8px;
 }
 .table > tbody > tr > td .inv-number {
-  color: #0F3567;
+  color: #00932d;
   cursor: pointer;
   font-size: 16px;
   text-align: left;
@@ -126,7 +126,7 @@ table.dataTable {
   width: 17px;
   height: 17px;
   vertical-align: text-bottom;
-  color: #8F2829;
+  color: #009bde;
   stroke-width: 1.5;
 }
 .table > tbody > tr > td .inv-date svg {
