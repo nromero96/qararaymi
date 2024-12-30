@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
-    <title>Recupera Contraseña | Congreso CP 2024</title>
+    <title>Recupera Contraseña | Q’ARA RAYMI 2025</title>
     <link rel="icon" type="image/x-icon" href="{{asset('assets/img/favicon.ico')}}"/>
     <link href="{{asset('layouts/vertical-light-menu/css/light/loader.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('layouts/vertical-light-menu/css/dark/loader.css')}}" rel="stylesheet" type="text/css" />
@@ -46,8 +46,8 @@
                         <div class="auth-overlay" style="background-image: url({{asset('assets/img/bg-lg-1-min.jpg')}});background-size: cover;"></div>
                         <div class="auth-cover">
                             <div class="position-relative">
-                                <h2 class="mt-5 text-white px-2" style="font-weight: bold;">{{__('23º Congreso Peruano de Cirugía Plástica')}}</h2>
-                                <p class="text-white">{{ __('Swissôtel Lima, 06 al 09 de Noviembre del 2024') }}</p>
+                                <h2 class="mt-5 text-white px-2" style="font-weight: bold;">{{__('Q’ARA RAYMI 2025')}}</h2>
+                                <p class="text-white">{{ __('Swissôtel Lima, del 26 al 30 de agosto 2025') }}</p>
                             </div>
                         </div>
 
