@@ -350,14 +350,14 @@
                                 @if ($inscription->status_compr != 'Informado' && (\Auth::user()->hasRole('Administrador') || \Auth::user()->hasRole('Secretaria')))
                                     <div class="card px-3 py-3 bg-primary mb-2 actionstatus">
                                         <label class="form-label mb-1 text-white"><span class="fw-bold">{{ __('Estado de la inscripción') }}</span>: <span>({{ $inscription->status }})</span></label>
-                                        <form class="row" action="{{ route('inscriptions.updatestatus', ['id' => $inscription->id]) }}" method="POST">
+                                        <form class="row" action="{{ route('inscriptions.updatestatus', ['id' => $inscription->id]) }}" id="formstatus" method="POST">
                                             @csrf
                                             @method('PUT')
                                             <div class="col-md-4">
                                                 <select name="action" id="action" class="form-control">
                                                     <option value="Pendiente" @if ($inscription->status == 'Pendiente') selected @endif >{{ __('Pendiente') }}</option>
                                                     <option value="Procesando" @if ($inscription->status == 'Procesando') selected @endif>{{ __('Procesando') }}</option>
-                                                    <option value="Pagado" @if ($inscription->status == 'Pagado') selected @endif>{{ __('Pagado') }}</option>
+                                                    <option value="Pagado" @if ($inscription->status == 'Pagado') selected disabled  @endif>{{ __('Pagado') }}</option>
                                                     <option value="Rechazado" @if ($inscription->status == 'Rechazado') selected @endif>{{ __('Rechazado') }}</option>
                                                 </select>
                                             </div>
@@ -369,6 +369,21 @@
                                             </div>
                                         </form>
                                     </div>
+
+                                    <script>
+                                        //desactivar el boton cuando haya echo click en boton submit del formstatus
+                                        document.addEventListener('DOMContentLoaded', function () {
+                                            const form = document.getElementById('formstatus');
+
+                                            if (form) {
+                                                form.addEventListener('submit', function () {
+                                                    const buttons = document.querySelectorAll('.actionstatus button');
+                                                    buttons.forEach(button => button.setAttribute('disabled', 'disabled'));
+                                                });
+                                            }
+                                        });
+
+                                    </script>
 
                                 @endif
 

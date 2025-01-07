@@ -121,14 +121,14 @@
 
                                             @foreach ($category_inscriptions as $category)
                                                 @php
-                                                    if($category->name == 'Cirujanos plásticos' || $category->name == 'Residentes' || $category->name == 'Miembros Hábiles SPCPRE - FILACP' || $category->name == 'Cuota especial'){
+                                                    if($category->name == 'Residentes en dermatología'){
                                                         $infomark = ' <span class="text-danger">*</span>';
                                                     }else{
                                                         $infomark = '';
                                                     }
                                                 @endphp
 
-                                                @if ($category->type == 'radio' && $category->status == 'active' && $category->id != '4' )
+                                                @if ($category->type == 'radio' && $category->status == 'active')
                                                     <tr>
                                                         <td>
                                                             <div class="form-check form-check-primary me-1">
@@ -287,12 +287,12 @@
                                             </label>
                                         </div>
 
-                                        <div class="form-check form-check-primary form-check-inline">
+                                        {{-- <div class="form-check form-check-primary form-check-inline">
                                             <input class="form-check-input cursor-pointer" type="radio" name="payment_method" value="Tarjeta" id="payment_method_card">
                                             <label class="form-check-label mb-0 cursor-pointer" for="payment_method_card">
                                                 Tarjeta de crédito/débito
                                             </label>
-                                        </div>
+                                        </div> --}}
                                     </div>
 
                                     <div id="dv_tranfer" class="mt-3">

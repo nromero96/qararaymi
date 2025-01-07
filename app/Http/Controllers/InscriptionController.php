@@ -1133,6 +1133,25 @@ class InscriptionController extends Controller
                 'updated_at' => now(),
             ]);
 
+            //Si action es igual a Pagado enviar correo
+            if($validatedData['action'] == 'Pagado'){
+                // Enviar correo
+                $user = User::find($inscription->user_id);
+                $datainscription = Inscription::join('category_inscriptions', 'inscriptions.category_inscription_id', '=', 'category_inscriptions.id')
+                    ->select('inscriptions.*', 'category_inscriptions.name as category_inscription_name')
+                    ->where('inscriptions.id', $inscription->id)
+                    ->first();
+                $data = [
+                    'user' => $user,
+                    'datainscription' => $datainscription,
+                ];
+
+                Mail::to($user->email)
+                    ->cc(config('services.correonotificacion.inscripcion'))
+                    ->send(new \App\Mail\InscriptionConfirmation($data));
+            }
+
+
             return redirect()->route('inscriptions.show', ['inscription' => $id])->with('success', 'Estado actualizado con éxito');
         } catch (\Exception $e) {
             // Manejo de errores

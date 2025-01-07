@@ -62,9 +62,9 @@
 </head>
 <body>
     <div class="container">
-        <h2>INSCRIPCIÓN # {{ $datainscription->id }}: En Proceso</h2>
+        <h2>INSCRIPCIÓN # {{ $datainscription->id }}: <span style="color:green;">Confirmado</span></h2>
         <p>Estimado(a) <b>{{ $userinfo->name }} {{ $userinfo->lastname }} {{ $userinfo->second_lastname }}</b>,</p>
-        <p>Le informamos que su preinscripción para el <b>IX CONGRESO NACIONAL CLÍNICO TERAPÉUTICO Q’ARA RAYMI 2025</b> ha sido recibida. El congreso se celebrará del 27 al 30 de agosto 2025, en el Swissôtel Lima.</p>
+        <p>Le informamos que su inscripción para el <b>IX CONGRESO NACIONAL CLÍNICO TERAPÉUTICO Q’ARA RAYMI 2025</b> ha sido confirmado. El congreso se celebrará del 27 al 30 de agosto 2025, en el Swissôtel Lima.</p>
 
         <!-- Título "Detalle de tu Inscripción" -->
         <h3>Detalle de su inscripción</h3>
@@ -99,11 +99,11 @@
         <!-- Fin de la tabla -->
 
         <!-- Recordatorio para ver el proceso de inscripción -->
-        <p>Recuerda que puedes ver el proceso de tu inscripción en el siguiente enlace:</p>
-        <p><a href="https://my.qararaymi.org/">Ver Proceso de Inscripción</a></p>
+        <p>Recuerda que puedes ver el detalle de tu inscripción en el siguiente enlace:</p>
+        <p><a href="https://my.qararaymi.org/">Ver Inscripción</a></p>
 
         <!-- Mensaje de validación de pago e información -->
-        <p><strong style="color:red;"><em>En un plazo de 72 horas enviaremos mensaje confirmando su inscripcion luego de haber recibido y verificado el pago correspondiente.</em><strong></p>
+        <p><strong style="color:green;"><em>Nos complace informarle que su inscripción ha sido confirmada exitosamente.</em><strong></p>
 
         <!-- Contacto de soporte -->
         <p>Para mayores detalles, puede contactarse con nosotros a través del e-mail <b>inscripciones@qararaymi.org</b></p><br>

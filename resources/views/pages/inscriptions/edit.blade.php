@@ -440,7 +440,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Acción para categoryInscriptionId
     categoryInscriptionId.addEventListener('change', (event) => {
         const value = event.target.value;
-        if (value === '7') {
+        if (value === '5') {
             dvSpecialCode.classList.remove('d-none');
             specialCode.setAttribute('required', 'required');
         } else {
