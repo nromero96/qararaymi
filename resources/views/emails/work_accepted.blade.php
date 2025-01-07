@@ -10,12 +10,12 @@
     </p>
 
     <h1 style="color: #c00000;font-size: 22px;text-align: center;line-height: 14px;font-family: arial;">
-        XLI REUNIÓN ANUAL DE DERMATÓLOGOS LATINOAMERICANOS
-        <span style="display: block; font-size: 19px; margin-top: 10px; color:black;font-weight: normal;">Swissôtel Lima, 8 al 11 de Mayo de 2024</span>
+        IX CONGRESO NACIONAL CLÍNICO TERAPÉUTICO Q’ARA RAYMI 2025
+        <span style="display: block; font-size: 19px; margin-top: 10px; color:black;font-weight: normal;">Swissôtel Lima, del 27 al 30 de agosto 2025</span>
     </h1>
     <div style="color: rgba(255, 255, 255, 0); height: 20px;">-</div>
     <p style="font-size: 14px;">
-        Lima, 21 de febrero de 2024
+        Lima, 21 de febrero de 2025
     </p>
     <div style="color: rgba(255, 255, 255, 0); height: 1px;">-</div>
     <p style="font-size: 14px;">
@@ -23,7 +23,7 @@
     </p>
 
     <p style="font-size: 14px;">
-        Por medio del presente tenemos el agrado de confirmarle que su(s) trabajo(s) presentado(s) a RADLA LIMA 2024 han sido aceptados para ser presentados en poster electrónico.
+        Por medio del presente tenemos el agrado de confirmarle que su(s) trabajo(s) presentado(s) a Q’ARA RAYMI 2025 han sido aceptados para ser presentados en poster electrónico.
     </p>
 
     <table style="width:100%;text-align: left; font-size: 14px;">

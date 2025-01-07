@@ -37,6 +37,8 @@ if (!function_exists('setTitle')) :
             echo __('Registrar Inscripción') . $admin_name;
         elseif ($page_name === 'inscriptions_show'):
             echo __('Ver Inscripción') . $admin_name;
+        elseif ($page_name === 'inscriptions_myinscription'):
+            echo __('Mi Inscripción') . $admin_name;
 
         //Int. Hotelreservations
         elseif ($page_name === 'hotelreservations'):

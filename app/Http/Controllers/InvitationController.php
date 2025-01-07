@@ -84,22 +84,22 @@ class InvitationController extends Controller
         $fechaactual = 'Lima, ' . $fechaactual;
 
         $content = <<<EOD
-            <p style="font-size:15px;text-align:center; color:#c40000;"><img src="{$logo}" alt="logo" width="80" height="80" /><br><b>XLI REUNIÓN ANUAL DE DERMATÓLOGOS LATINOAMERICANOS</b><br><b style="color:#000;font-size:13px;text-align:center;">Swissôtel Lima, 8 al 11 de Mayo de 2024</b><br><br></p>
+            <p style="font-size:15px;text-align:center; color:#c40000;"><img src="{$logo}" alt="logo" width="80" height="80" /><br><b>IX CONGRESO NACIONAL CLÍNICO TERAPÉUTICO Q´ARA RAYMI 2025</b><br><b style="color:#000;font-size:13px;text-align:center;">Swissôtel Lima, del 27 al 30 de agosto 2025</b><br><br></p>
             <p>{$fechaactual}</p>
             <p>Señor(a) Doctor(a)</p>
             <p><strong>{$invitation->full_name}</strong></p>
             <p><strong>E-mail:</strong> {$invitation->email}</p>
             <p><strong>País:</strong> {$invitation->country}</p>
             <p>Estimado(a) colega:</p>
-            <p style="text-align: justify;">Es grato dirigirme a usted para invitarle muy cordialmente a participar en la <b>XLI Reunión Anual de Dermatólogos Latinoamericanos</b> que se realizará en la ciudad de Lima, del 8 al 11 de mayo de 2024.</p>
+            <p style="text-align: justify;">Es grato dirigirme a usted para invitarle muy cordialmente a participar en la <b>IX CONGRESO NACIONAL CLÍNICO TERAPÉUTICO Q´ARA RAYMI 2025</b> que se realizará en la ciudad de Lima, del 27 al 30 de agosto 2025.</p>
             <p style="text-align: justify;">El evento dermatológico más importante de la región congregará en Lima a más de 2,500 profesionales especialistas y residentes en dermatología, procedentes de los países que integran RADLA, de América, Europa y Asia Pacífico.  Esperamos que esta invitación encuentre en Ud. favorable acogida que le permita disfrutar de un congreso con alta calidad científica con la presencia de destacados profesores internacionales especialmente invitados para la ocasión.</p>
             <p>Hacemos propicia esta oportunidad para reiterarle nuestros más cordiales saludos.</p>
             <br>
             <p>Atentamente,</p>
-            <p><img src="{$firma}" alt="logo" width="120" /><br><b>Dr. Gustavo Camino</b><br>Presidente<br>RADLA Lima 2024</p>
+            <p><img src="{$firma}" alt="logo" width="120" /><br><b>Dr. Manuel Armando</b><br>Presidente<br>Q´ARA RAYMI 2025</p>
             <br>
             <br>
-            <p style="font-size:10px;text-align:center;">Nota: Esta invitación es exclusiva para inscribirse en RADLA LIMA 2024 y no incluye gastos de viaje a Perú:<br>
+            <p style="font-size:10px;text-align:center;">Nota: Esta invitación es exclusiva para inscribirse en IX CONGRESO NACIONAL CLÍNICO TERAPÉUTICO Q´ARA RAYMI 2025 y no incluye gastos de viaje a Perú:<br>
             pasaje aéreo, hospedaje o traslados en Lima.
             </p>
             <p style="font-size:10px;text-align:center; color:blue;"><b>Secretaría & Organización: Tel. (51 1) 983481269 - 998672199</b><br>

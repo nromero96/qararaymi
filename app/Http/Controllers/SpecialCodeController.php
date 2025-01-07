@@ -165,6 +165,7 @@ class SpecialCodeController extends Controller
     
     public function validateSpecialCode(Request $request)
     {
+
         $code = $request->input('code');
         $specialcode = SpecialCode::where('code', $code)->first();
 

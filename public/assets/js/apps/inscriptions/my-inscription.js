@@ -45,11 +45,15 @@ document.addEventListener("DOMContentLoaded", function () {
             return false;
         }
 
-        if (selectedRadioPaymentMethod.value === 'Transferencia/Depósito') {
-            if (!validarArchivoFilePond('voucher_file', "Debe adjuntar un comprobante de transferencia o depósito")) {
-                return false;
-            }
-        }
+        if(selectedRadioPaymentMethod.value === 'Transferencia/Depósito') {
+          const exemptCategories = ['5', '6']; // Categorías que no requieren validación
+      
+          if (!exemptCategories.includes(categoryRadioButtons.value)) {
+              if (!validarArchivoFilePond('voucher_file', "Debe adjuntar un comprobante de transferencia o depósito")) {
+                  return false;
+              }
+          }
+      }
 
         if(selectedRadioCategoryInscription.value === '5' && document.getElementById('specialcode_verify').value === ''){
             alert('Debe validar la cuota especial');
@@ -99,17 +103,6 @@ function calculateTotalPrice() {
     if (checkbox.checked) {
       const catPrice = parseFloat(checkbox.getAttribute('data-catprice'));
 
-      //IF category 9 not add price
-
-      const selectedRadioCategory = document.querySelector('input[type="radio"][name="category_inscription_id"]:checked');
-      const selectedValueCategory = document.querySelector('input[type="radio"][name="category_inscription_id"]:checked').value;
-
-      if(selectedValueCategory === '9' || selectedValueCategory === '11'){
-        totalPrice += 0;
-      }else{
-        totalPrice += catPrice;
-      }
-
       //remove class d-none in dv_accompanist
       dvAccompanist.classList.remove('d-none');
       inputsaccomp.forEach(input => {
@@ -131,29 +124,6 @@ function calculateTotalPrice() {
         });
     }
   });
-
-  //si hay un codigo especial marcar el metodo de pago como tarjeta y desabilitar el radio de transferencia
-  const specialCodeVerify = document.getElementById('specialcode_verify');
-  if(specialCodeVerify.value == 'valid' || totalPrice == 0){
-    const radioPaymentMethodCard = document.getElementById('payment_method_card');
-    const radioPaymentMethodTransfer = document.getElementById('payment_method_transfer');
-    radioPaymentMethodCard.checked = true;
-    radioPaymentMethodTransfer.setAttribute('disabled', 'disabled');
-    const dvTranfer = document.getElementById('dv_tranfer');
-    const dvCard = document.getElementById('dv_card');
-    dvTranfer.classList.add('d-none');
-    dvCard.classList.remove('d-none');
-  }else{
-    const radioPaymentMethodTransfer = document.getElementById('payment_method_transfer');
-    const radioPaymentMethodCard = document.getElementById('payment_method_card');
-    radioPaymentMethodTransfer.checked = true;
-    radioPaymentMethodTransfer.removeAttribute('disabled', 'disabled');
-    radioPaymentMethodCard.cheked = false;
-    const dvTranfer = document.getElementById('dv_tranfer');
-    const dvCard = document.getElementById('dv_card');
-    dvTranfer.classList.remove('d-none');
-    dvCard.classList.add('d-none');
-  }
 
   if(totalPrice == 0){
 
@@ -188,17 +158,25 @@ const btnClearSpecialCode = document.getElementById('clear_specialcode');
 const specialCodeVerify = document.getElementById('specialcode_verify');
 const descriptionSpecialCode = document.getElementById('sms_valid_vc');
 
+const inputVoucherFile = document.getElementById('voucher_file');
+
 // Función para manejar el clic categoryRadioButtons
 function handleCategoryRadioButtons(){
-    const selectedRadioCategory = document.querySelector('input[type="radio"][name="category_inscription_id"]:checked');
     const selectedValueCategory = document.querySelector('input[type="radio"][name="category_inscription_id"]:checked').value;
 
-    const radioPaymentMethodTransfer = document.getElementById('payment_method_transfer');
-    const radioPaymentMethodCard = document.getElementById('payment_method_card');
-    const dvtranfer = document.getElementById('dv_tranfer');
-    const dvcard = document.getElementById('dv_card');
 
-    if(selectedValueCategory === '4' || selectedValueCategory === '5'){
+    const isCpRequiredHidden = selectedValueCategory === '1' || selectedValueCategory === '2' || selectedValueCategory === '3' || selectedValueCategory === '4';
+
+    const cprequired = document.getElementById('cprequired');
+    // Handle CP Required
+    if(isCpRequiredHidden){
+        cprequired.classList.remove('d-none');
+    }else{
+        cprequired.classList.add('d-none');
+    }
+
+
+    if(selectedValueCategory === '4'){
 
       //Document file required
       dvDocumentFile.classList.remove('d-none');
@@ -215,7 +193,7 @@ function handleCategoryRadioButtons(){
       btnValidateSpecialCode.classList.remove('d-none');
       btnClearSpecialCode.classList.add('d-none');
 
-    }else if(selectedValueCategory === '1' || selectedValueCategory === '2' || selectedValueCategory === '3'){
+    }else if(selectedValueCategory === '1' || selectedValueCategory === '2' || selectedValueCategory === '3' || selectedValueCategory === '6'){
 
         //Document file not required
         dvDocumentFile.classList.add('d-none');
@@ -233,6 +211,8 @@ function handleCategoryRadioButtons(){
         btnClearSpecialCode.classList.add('d-none');
 
       } else if(selectedValueCategory === '5'){
+
+        cprequired.classList.add('d-none');
 
         //Document file not required
         dvDocumentFile.classList.remove('d-none');
@@ -263,12 +243,7 @@ function handleCategoryRadioButtons(){
         specialCodeVerify.value = '';
         btnValidateSpecialCode.classList.remove('d-none');
         btnClearSpecialCode.classList.add('d-none');
-
     }
-
-    const radioCategory = document.getElementById('category_5');
-    radioCategory.setAttribute('data-catprice', '00');
-
 }
 
 //if  clic in radio invoice if value is yes add class in dv_invoice_info
@@ -301,10 +276,10 @@ function handleInvoice(){
 btnValidateSpecialCode.addEventListener('click', function(){
 
   //valida si el campo esta vacio
-    if(inputSpecialCode.value === ''){
-        alert('Ingrese un código especial');
-        return false;
-    }
+  if(inputSpecialCode.value === ''){
+    alert('Ingrese un código especial');
+      return false;
+  }
 
   const radioCategory = document.getElementById('category_5');
     //verifica si el existe via ajax javascript
@@ -319,6 +294,7 @@ btnValidateSpecialCode.addEventListener('click', function(){
     if (xhr.readyState === 4) {
       if (xhr.status === 200) {
         const response = JSON.parse(xhr.responseText);
+
         if (response.success) {
           txtPriceSpecialCode.textContent = Math.floor(response.price);
           inputSpecialCode.setAttribute('readonly', 'readonly');
@@ -327,8 +303,6 @@ btnValidateSpecialCode.addEventListener('click', function(){
           btnValidateSpecialCode.classList.add('d-none');
           specialCodeVerify.value = 'valid';
           radioCategory.setAttribute('data-catprice', Math.floor(response.price));
-
-
         } else {
           descriptionSpecialCode.innerHTML = '<span class="text-danger">'+response.message+'</span>';
           txtPriceSpecialCode.textContent = '00';
@@ -346,11 +320,10 @@ btnValidateSpecialCode.addEventListener('click', function(){
   };
 
   // Configura los datos a enviar en la solicitud POST
-  const token = $('meta[name="csrf-token"]').attr('content');
+  const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
   const params = `code=${code}&_token=${token}`;
 
   xhr.send(params);
-
 
 });
 
@@ -367,7 +340,6 @@ btnClearSpecialCode.addEventListener('click', function(){
 
 const inputPaymentMethod = document.querySelectorAll('input[type="radio"][name="payment_method"]');
 const dvTranfer = document.getElementById('dv_tranfer');
-const dvCard = document.getElementById('dv_card');
 
 inputPaymentMethod.forEach(radio => {
     radio.addEventListener('change', handlePaymentMethod);
@@ -377,10 +349,9 @@ function handlePaymentMethod(){
     const selectedValuePaymentMethod = document.querySelector('input[type="radio"][name="payment_method"]:checked').value;
     if(selectedValuePaymentMethod === 'Transferencia/Depósito'){
         dvTranfer.classList.remove('d-none');
-        dvCard.classList.add('d-none');
+        
     }else{
         dvTranfer.classList.add('d-none');
-        dvCard.classList.remove('d-none');
     }
 }
 

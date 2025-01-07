@@ -133,11 +133,11 @@ class GafeteController extends Controller
         EOD;
 
         $pdf = new TCPDF();
-        $pdf->SetCreator('XLI Reunión Anual de Dermatólogos Latinoamericanos');
-        $pdf->SetAuthor('XLI Reunión Anual de Dermatólogos Latinoamericanos');
+        $pdf->SetCreator('IX CONGRESO NACIONAL CLÍNICO TERAPÉUTICO Q´ARA RAYMI 2025');
+        $pdf->SetAuthor('IX CONGRESO NACIONAL CLÍNICO TERAPÉUTICO Q´ARA RAYMI 2025');
         $pdf->SetTitle('GAFETE: '.$inscriptions->id.'-'. $inscriptions->solapin_name);
         $pdf->SetSubject('GAFETE: '.$inscriptions->id.'-'. $inscriptions->solapin_name);
-        $pdf->SetKeywords('GAFETE, XLI Reunión Anual de Dermatólogos Latinoamericanos, Swissôtel Lima, 8 al 11 de Mayo de 2024');
+        $pdf->SetKeywords('GAFETE, IX CONGRESO NACIONAL CLÍNICO TERAPÉUTICO Q´ARA RAYMI 2025, Swissôtel Lima, del 27 al 30 de agosto 2025');
         $pdf->SetAutoPageBreak(TRUE, 0);
         $pdf->setPrintHeader(false);
         $pdf->setPrintFooter(false);
@@ -351,11 +351,11 @@ class GafeteController extends Controller
                 ->get();
 
         $pdf = new TCPDF();
-        $pdf->SetCreator('XLI Reunión Anual de Dermatólogos Latinoamericanos');
-        $pdf->SetAuthor('XLI Reunión Anual de Dermatólogos Latinoamericanos');
+        $pdf->SetCreator('IX CONGRESO NACIONAL CLÍNICO TERAPÉUTICO Q´ARA RAYMI 2025');
+        $pdf->SetAuthor('IX CONGRESO NACIONAL CLÍNICO TERAPÉUTICO Q´ARA RAYMI 2025');
         $pdf->SetTitle('Lista de Gafetes');
         $pdf->SetSubject('Lista de Gafetes');
-        $pdf->SetKeywords('Lista de Gafetes, XLI Reunión Anual de Dermatólogos Latinoamericanos, Swissôtel Lima, 8 al 11 de Mayo de 2024');
+        $pdf->SetKeywords('Lista de Gafetes, IX CONGRESO NACIONAL CLÍNICO TERAPÉUTICO Q´ARA RAYMI 2025, Swissôtel Lima, del 27 al 30 de agosto 2025');
         
         $pdf->AddPage();
 

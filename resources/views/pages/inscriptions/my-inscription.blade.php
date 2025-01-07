@@ -331,12 +331,13 @@
                                             </label>
                                         </div>
 
-                                        <div class="form-check form-check-primary form-check-inline">
+                                        {{-- <div class="form-check form-check-primary form-check-inline">
                                             <input class="form-check-input cursor-pointer" type="radio" name="payment_method" value="Tarjeta" id="payment_method_card">
                                             <label class="form-check-label mb-0 cursor-pointer" for="payment_method_card">
                                                 Tarjeta de crédito/débito
                                             </label>
-                                        </div>
+                                        </div> --}}
+                                        
                                     </div>
 
                                     <div id="dv_tranfer" class="mt-3">
@@ -350,7 +351,7 @@
                                             <div class="col-md-2"></div>
                                             <div class="col-md-8">
                                                 <div id="dv_voucher_file" class="mt-2">
-                                                    <label for="voucher_file" class="d-block text-center">Adjuntar comprobante de pago.</label>
+                                                    <label for="voucher_file" class="d-block text-center">Adjuntar comprobante de pago. <small id="cprequired" class="text-danger">(Requerido)</small></label>
                                                     <input type="file" name="voucher_file" id="voucher_file" class="file-control">
                                                 </div>
                                             </div>

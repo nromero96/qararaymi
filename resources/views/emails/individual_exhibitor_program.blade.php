@@ -10,8 +10,8 @@
         </p>
 
         <h1 style="color: #c00000;font-size: 23px;text-align: center;line-height: 23px;font-family: arial;">
-            IX Q’ARA RAYMI 2025<br>
-            <span style="display: block; font-size: 19px; margin-top: 2px; color:black;font-weight: normal;">Swissôtel Lima, del 26 al 30 de agosto 2025</span>
+            IX CONGRESO NACIONAL CLÍNICO TERAPÉUTICO Q’ARA RAYMI 2025<br>
+            <span style="display: block; font-size: 19px; margin-top: 2px; color:black;font-weight: normal;">Swissôtel Lima, del 27 al 30 de agosto 2025</span>
         </h1>
         <div style="color: white; height: 20px;">-</div>
         <p style="font-size: 14px;">

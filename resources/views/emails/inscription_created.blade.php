@@ -64,7 +64,7 @@
     <div class="container">
         <h2>INSCRIPCIÓN # {{ $datainscription->id }}: En Proceso</h2>
         <p>Estimado(a) <b>{{ $userinfo->name }} {{ $userinfo->lastname }} {{ $userinfo->second_lastname }}</b>,</p>
-        <p>Le informamos que su preinscripción para el <b>IX Q’ARA RAYMI 2025</b> ha sido recibida. El congreso se celebrará del 26 al 30 de agosto 2025, en el Swissôtel Lima.</p>
+        <p>Le informamos que su preinscripción para el <b>IX CONGRESO NACIONAL CLÍNICO TERAPÉUTICO Q’ARA RAYMI 2025</b> ha sido recibida. El congreso se celebrará del 27 al 30 de agosto 2025, en el Swissôtel Lima.</p>
 
         <!-- Título "Detalle de tu Inscripción" -->
         <h3>Detalle de su inscripción</h3>
@@ -107,13 +107,13 @@
         <p><a href="https://my.qararaymi.org/">Ver Proceso de Inscripción</a></p>
 
         <!-- Mensaje de validación de pago e información -->
-        <p>Antes de aprobar su inscripción, validaremos el pago y la información proporcionada.</p>
+        <p><strong style="color:red;"><em>En un plazo de 72 horas enviaremos mensaje confirmando su inscripcion luego de haber recibido y verificado el pago correspondiente.</em><strong></p>
 
         <!-- Contacto de soporte -->
-        <p>Estamos aquí para ayudarle en caso de cualquier consulta o aclaración adicional. Para mayores detalles, puede contactarse con nosotros a través del e-mail <b>inscripciones@qararaymi.org</b></p><br>
+        <p>Para mayores detalles, puede contactarse con nosotros a través del e-mail <b>inscripciones@qararaymi.org</b></p><br>
 
         <!-- Firma y contacto del Comité Organizador -->
-        <p class="signature">Atentamente,<br>Comité Organizador<br><b>Q’ARA RAYMI 2025</b><br>+51 983 481 269<br>inscripciones@qararaymi.org</p>
+        <p class="signature">Atentamente,<br>Inscripciones<br><b>Q’ARA RAYMI 2025</b><br>+51 983 481 269<br>inscripciones@qararaymi.org</p>
     </div>
 </body>
 </html>
