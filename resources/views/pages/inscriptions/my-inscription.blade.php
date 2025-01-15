@@ -186,7 +186,7 @@
                                                     }
                                                 @endphp
 
-                                                @if ($category->type == 'radio' && $category->status == 'active')
+                                                @if ($category->type == 'radio' && $category->status == 'active' && $category->id != '6')
                                                     <tr>
                                                         <td>
                                                             <div class="form-check form-check-primary me-1">

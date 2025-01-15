@@ -374,7 +374,6 @@
                                         //desactivar el boton cuando haya echo click en boton submit del formstatus
                                         document.addEventListener('DOMContentLoaded', function () {
                                             const form = document.getElementById('formstatus');
-
                                             if (form) {
                                                 form.addEventListener('submit', function () {
                                                     const buttons = document.querySelectorAll('.actionstatus button');
@@ -407,9 +406,9 @@
                                 @if(\Auth::user()->hasRole('Administrador') || \Auth::user()->hasRole('Secretaria'))
 
                                     @if($inscription->status == 'Pagado' && $inscription->status_compr == 'Ninguna' )
-                                        {{-- <div id="actionbtncompr">
+                                        <div id="actionbtncompr">
                                             <a href="javascript:;" class="btn btn-primary mb-1 btnrequestcompr" data-inscription="{{ $inscription->id }}" >{{__("Emitir comprobante")}}</a>
-                                        </div> --}}
+                                        </div>
                                     @endif
 
                                     @if($inscription->status_compr == 'Pendiente' || $inscription->status_compr == 'Procesando')
