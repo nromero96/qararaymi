@@ -66,13 +66,20 @@ class InvitationController extends Controller
         return response()->json(['message' => 'Invitation generated and sent successfully']);
     }
 
+    // public function previewInvitationPDF()
+    // {
+    //     $invitation = Invitation::find(1);
+    //     $this->generateInvitationPDF($invitation);
+    // }
+
 
     private function generateInvitationPDF(Invitation $invitation)
     {
         
         //GET path logo and firma
-        $logo = public_path('assets/img/logo.png');
-        $firma = public_path('assets/img/firma-dr-gustavo-camino.png');
+        $logo = public_path('assets/img/logo-ciderm.jpg');
+        $firma_1 = public_path('assets/img/firma-1.png');
+        $firma_2 = public_path('assets/img/firma-2.png');
 
         // Establecer la zona horaria
         date_default_timezone_set('America/Lima');
@@ -84,37 +91,80 @@ class InvitationController extends Controller
         $fechaactual = 'Lima, ' . $fechaactual;
 
         $content = <<<EOD
-            <p style="font-size:15px;text-align:center; color:#c40000;"><img src="{$logo}" alt="logo" width="80" height="80" /><br><b>IX CONGRESO NACIONAL CLÍNICO TERAPÉUTICO Q´ARA RAYMI 2025</b><br><b style="color:#000;font-size:13px;text-align:center;">Swissôtel Lima, del 27 al 30 de agosto 2025</b><br><br></p>
+            <p style="font-size:15px;text-align:center; color:#c40000;"><img src="{$logo}" alt="logo" width="280" height="47" /><br><b style="color:red;font-size:18px;text-align:center;">Q´ARA RAYMI 2025</b><br><b style="color:blue;font-size:14px;text-align:center;">X CONGRESO NACIONAL CLÍNICO TERAPÉUTICO</b><br><b style="color:#000;font-size:11px;text-align:center;">Edición Presencial</b><br><b style="color:#000;font-size:12px;text-align:center;">Swissôtel Lima, del 27 al 30 de agosto 2025</b><br></p>
             <p>{$fechaactual}</p>
+            <br>
             <p>Señor(a) Doctor(a)</p>
             <p><strong>{$invitation->full_name}</strong></p>
             <p><strong>E-mail:</strong> {$invitation->email}</p>
             <p><strong>País:</strong> {$invitation->country}</p>
             <p>Estimado(a) colega:</p>
-            <p style="text-align: justify;">Es grato dirigirme a usted para invitarle muy cordialmente a participar en la <b>IX CONGRESO NACIONAL CLÍNICO TERAPÉUTICO Q´ARA RAYMI 2025</b> que se realizará en la ciudad de Lima, del 27 al 30 de agosto 2025.</p>
-            <p style="text-align: justify;">El evento dermatológico más importante de la región congregará en Lima a más de 2,500 profesionales especialistas y residentes en dermatología, procedentes de los países que integran RADLA, de América, Europa y Asia Pacífico.  Esperamos que esta invitación encuentre en Ud. favorable acogida que le permita disfrutar de un congreso con alta calidad científica con la presencia de destacados profesores internacionales especialmente invitados para la ocasión.</p>
+            <p style="text-align: justify;">Es grato dirigirnos a usted para invitarle muy cordialmente a participar en el <b>IX Congreso Nacional Clínico Terapéutico – Q´ARA RAYMI 2025</b> que se realizará en la ciudad de Lima, del 27 al 30 de agosto del 2025 en las instalaciones del Swissôtel Lima.</p>
+            <p style="text-align: justify;">Esperamos que esta invitación encuentre en Ud. favorable acogida que le permita disfrutar de un congreso con alta calidad científica con la presencia de destacados profesores internacionales.</p>
             <p>Hacemos propicia esta oportunidad para reiterarle nuestros más cordiales saludos.</p>
             <br>
             <p>Atentamente,</p>
-            <p><img src="{$firma}" alt="logo" width="120" /><br><b>Dr. Manuel Armando</b><br>Presidente<br>Q´ARA RAYMI 2025</p>
-            <br>
-            <br>
-            <p style="font-size:10px;text-align:center;">Nota: Esta invitación es exclusiva para inscribirse en IX CONGRESO NACIONAL CLÍNICO TERAPÉUTICO Q´ARA RAYMI 2025 y no incluye gastos de viaje a Perú:<br>
-            pasaje aéreo, hospedaje o traslados en Lima.
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p style="font-size:9px;text-align:center;"><i><u>Nota:</u> Esta invitación es exclusiva para inscribirse en Q´ARA RAYMI 2025 y no incluye gastos de viaje a Perú: pasaje aéreo, hospedaje o traslados en Lima.</i></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p style="font-size:10px;text-align:center; color:#000;"><b>Secretaría & Organización: Tel. +51 983481269 - 998672199 – (51 1) 4778694</b><br>
+            E-mail: inscripciones@rosmarasociados.com * www.cidermperu.org 
             </p>
-            <p style="font-size:10px;text-align:center; color:blue;"><b>Secretaría & Organización: Tel. (51 1) 983481269 - 998672199</b><br>
-            E-mail: inscripciones@rosmarasociados.com 
-            </p>
+        EOD;
+
+        $imagenfirmapresidente = '<img src="' . $firma_1 . '" alt="firma" width="200" height="100" />';
+        $imagenfirmasecretario = '<img src="' . $firma_2 . '" alt="firma" width="200" height="100" />';
+
+        $datosatentamente = <<<EOD
+            <table style="width: 100%;" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td style="width: 50%; text-align: center;">
+                        <p style="font-size: 10px; text-align: center;"><b>Dr. Manuel del Solar</b><br>Presidente</p>
+                    </td>
+                    <td style="width: 50%; text-align: center;">
+                        <p style="font-size: 10px; text-align: center;"><b>Dra. Patricia Alvarez</b><br>Secretaría General</p>
+                    </td>
+                </tr>
+            </table>
         EOD;
 
         // Set up the PDF content using TCPDF methods
         $pdf = new TCPDF();
+
         $pdf->SetPrintHeader(false);
         $pdf->SetPrintFooter(false);
-        $pdf->SetFooterMargin(0);
+        $pdf->SetMargins(21, 10, 21, 1);
+        $pdf->SetAutoPageBreak(TRUE, 0);
         $pdf->AddPage();
         $pdf->SetFont('helvetica', '', 11);
         $pdf->writeHTML($content, true, false, true, false, '');
+
+        //Ubicar datosatentamente
+        $pdf->writeHTMLCell(0, 0, '', 205, $datosatentamente, 0, 1, 0, true, '', true);
+        //data             (ancho, alto, x, y, contenido, borde, salto de linea, ajuste, relleno, alineacion, fondo)
+
+        //ubicar firma 
+        $pdf->writeHTMLCell(45, 0, 42, 198, $imagenfirmapresidente, 0, 1, 0, true, '', true);
+        $pdf->writeHTMLCell(43, 0, 125, 194, $imagenfirmasecretario, 0, 1, 0, true, '', true);
+
+
+
+        // VER PDF
+        //$pdf->Output('invitation.pdf', 'I');
+
 
         // Save the PDF to the specified directory
         $pdfFilePath = storage_path('app/public/uploads/invitation_letters/') . 'invitation_' . time() . '.pdf';
@@ -124,6 +174,7 @@ class InvitationController extends Controller
         $invitation->update(['file_name' => basename($pdfFilePath)]);
 
         return $pdfFilePath;
+
     }
 
     private function sendInvitationEmail($email, $pdfFilePath, $fullName, $country)
