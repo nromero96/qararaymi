@@ -30,7 +30,7 @@
                         <div class="row">
                             <div class="col-xl-12 col-md-12 col-sm-12 mb-2 col-12">
                                 <h4>
-                                    Completa tus datos personales.
+                                    Completa tus datos personales....
                                 </h4>
                             </div>
                         </div>
@@ -281,7 +281,7 @@
 
                             </div>
 
-                            <div class="col-md-12">
+                            <div class="col-md-12" id="dv_invoice">
                                 <div class="card px-3 py-3">
                                     <label for="" class="form-label fw-bold">
                                         {{ __('¿Necesita Factura?') }}
@@ -316,7 +316,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-12">
+                            <div class="col-md-12" id="dv_payment">
                                 <div class="card px-3 py-3">
                                     <label for="" class="form-label fw-bold text-center">{{ __('FORMA DE PAGO') }}</label>
 
@@ -367,6 +367,12 @@
                                         </p>
                                     </div>
 
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-12 d-none" id="sms_extranjero">
+                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                    <strong>{{__("Nota:")}}</strong> Escríbenos a <b>inscripciones@qararaymi.org</b> para completar tu inscripción. Al enviar este formulario, recibirás un correo con los detalles de tu preinscripción.
                                 </div>
                             </div>
 
