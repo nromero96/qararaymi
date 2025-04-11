@@ -289,6 +289,7 @@
                             </div>
                             @endif
 
+                            @if(!in_array($inscription->category_inscription_name, ['Cuota especial', 'Invitado', 'Dermatólogos Extranjeros']))
                             <div class="col-md-12">
                                 <div class="card px-3 py-3">
                                     <label for="" class="form-label fw-bold mb-0">{{ __('Método de Pago') }}:</label>
@@ -343,7 +344,7 @@
 
                                 </div>
                             </div>
-
+                            @endif
 
                             <div class="col-md-7">
 

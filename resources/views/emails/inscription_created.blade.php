@@ -81,7 +81,12 @@
             </tr>
             <tr>
                 <td>Categoría</td>
-                <td>{{ $datainscription->category_inscription_name }}</td>
+                <td>
+                    {{ $datainscription->category_inscription_name }}
+                    @if($datainscription->special_code != null)
+                    <br><small style="color: #1156cf;">{{ $datainscription->special_code }}</small>
+                    @endif
+                </td>
             </tr>
             <tr>
                 <td>Precio</td>

@@ -81,20 +81,30 @@
             </tr>
             <tr>
                 <td>Categoría</td>
-                <td>{{ $datainscription->category_inscription_name }}</td>
+                <td>
+                    {{ $datainscription->category_inscription_name }}
+                    @if($datainscription->special_code != null)
+                    <br><small style="color: #1156cf;">{{ $datainscription->special_code }}</small>
+                    @endif
+                </td>
             </tr>
             <tr>
                 <td>Precio</td>
-                <td>US$ {{ $datainscription->price_category }}</td>
+                <td>
+                    US$ {{ $datainscription->price_category }}
+                </td>
             </tr>
             <tr>
                 <td><b>Monto Total</b></td>
                 <td>US$ {{ $datainscription->total }}</td>
             </tr>
+
+            @if(!in_array($datainscription->category_inscription_name, ['Cuota especial', 'Invitado', 'Dermatólogos Extranjeros']))
             <tr>
                 <td>Método de Pago</td>
                 <td>{{ $datainscription->payment_method }}</td>
             </tr>
+            @endif
         </table>
         <!-- Fin de la tabla -->
 
