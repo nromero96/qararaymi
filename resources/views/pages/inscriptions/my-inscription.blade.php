@@ -341,12 +341,36 @@
                                     </div>
 
                                     <div id="dv_tranfer" class="mt-3">
-                                        <p class="text-center"><img src="{{ asset('assets/img/scotiabank.png') }}" style="width: 180px;border-radius: 10px;"></p>
-                                        <p class="text-center">
-                                            <b>Cta. Cte. Dólares:</b> 0002920669<br>
-                                            <b>CCI:</b> 009-043-000002920669-15<br>
-                                            <b>Código SWIFT:</b> BSUDPEPL<br>
-                                        </p>
+                                        <div class="row border-bottom border-top mx-0 mx-sm-5 py-2">
+                                            <div class="col-md-3">
+                                                <img src="{{ asset('assets/img/bcp-logo.png') }}" style="width: 100px;border-radius: 10px;">
+                                            </div>
+                                            <div class="col-md-3">
+                                                <b>Cta. Cte. Dólares:</b><br>193-7134999-1-24
+                                            </div>
+                                            <div class="col-md-4">
+                                                <b>CCI:</b><br>002-193-007134991124-19
+                                            </div>
+                                            <div class="col-md-2">
+                                                <b>Código SWIFT:</b><br>BCPLPEPL
+                                            </div>
+                                        </div>
+
+                                        <div class="row border-bottom mx-0 mx-sm-5 py-2 mb-3">
+                                            <div class="col-md-3">
+                                                <img src="{{ asset('assets/img/scotiabank.png') }}" style="width: 130px;border-radius: 10px;">
+                                            </div>
+                                            <div class="col-md-3">
+                                                <b>Cta. Cte. Dólares:</b><br>0002920669
+                                            </div>
+                                            <div class="col-md-4">
+                                                <b>CCI:</b><br>009-043-000002920669-15
+                                            </div>
+                                            <div class="col-md-2">
+                                                <b>Código SWIFT:</b><br>BSUDPEPL
+                                            </div>
+                                        </div>
+
                                         <div class="row">
                                             <div class="col-md-2"></div>
                                             <div class="col-md-8">
