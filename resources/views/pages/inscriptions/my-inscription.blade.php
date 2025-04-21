@@ -346,7 +346,7 @@
                                                 <img src="{{ asset('assets/img/bcp-logo.png') }}" style="width: 100px;border-radius: 10px;">
                                             </div>
                                             <div class="col-md-3">
-                                                <b>Cta. Cte. Dólares:</b><br>193-7134999-1-24
+                                                <b>Cta. Cte. Dólares:</b><br>193-7134991-1-24
                                             </div>
                                             <div class="col-md-4">
                                                 <b>CCI:</b><br>002-193-007134991124-19
