@@ -67,7 +67,7 @@
                     <div class="widget-content widget-content-area pt-0">
                         <div class="row g-3">
                             <div class="col-md-4">
-                                <label class="form-label fw-bold mb-0">{{__("Nombres")}}:</label><br>
+                                <label class="form-label fw-bold mb-0">{{__("Nombre completo")}}:</label><br>
                                 <span class="bx-text">{{ $inscription->user_name }}</span>
                             </div>
                             <div class="col-md-4">
