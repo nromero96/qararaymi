@@ -45,36 +45,6 @@ use Illuminate\Support\Facades\Log;
 |
 */
 
-Route::get('/crear-enlace', function () {
-    Artisan::call('storage:link');
-    return "Enlace simbólico creado con éxito.";
-});
-
-
-Route::get('/clear-cache', function () {
-    try {
-        // Limpiar la caché
-        Artisan::call('cache:clear');
-
-        // Limpiar la caché de configuración
-        Artisan::call('config:cache');
-
-        // Mensaje de éxito
-        return 'Cache cleared successfully.';
-    } catch (\Exception $e) {
-        // Manejo de errores
-        return 'Error clearing cache: ' . $e->getMessage();
-    }
-});
-
-
-//send test mail simple text use smtp config
-// Route::get('/enviar-correo', function () {
-//     $destinatario = 'niltondeveloper96@gmail.com';
-//     Mail::to($destinatario)->send(new  \App\Mail\PruebaCorreo());
-//     return "Correo enviado desde la ruta.";
-// });
-
 Route::get('/', function () {
     return view('auth.login');
 });
@@ -118,6 +88,29 @@ Route::group(['middleware' => ['auth', 'check.inscription','ensureStatusActive']
     Route::get('/ejecutar-migraciones', function () {
         Artisan::call('migrate');
         return 'Migraciones ejecutadas con éxito.';
+    });
+
+    //Optimize
+    Route::get('/optimize', function () {
+        Artisan::call('optimize');
+        return 'Optimizado.';
+    });
+
+    //Cache todo
+    Route::get('/cache-todo', function () {
+        Artisan::call('optimize');
+        Artisan::call('cache:clear');
+        Artisan::call('config:clear');
+        Artisan::call('view:clear');
+        Artisan::call('route:clear');
+        // Artisan::call('livewire:discover');
+        return 'Cache todo.';
+    });
+
+    //storage link
+    Route::get('/storage-link', function () {
+        Artisan::call('storage:link');
+        return 'Storage link creado correctamente en cpanel.';
     });
 
     //Search Online Posters

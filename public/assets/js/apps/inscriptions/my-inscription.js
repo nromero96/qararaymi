@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
+
+    
+  
     const formInscription = document.getElementById("formInscription");
     var btnSubInscription = document.getElementById("btnSubInscription");
     formInscription.addEventListener("submit", function (event) {
@@ -11,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     function validarCamposInscription() {
+        const selectCategoryRadioButtons = document.querySelector('input[name="category_inscription_id"]:checked');
         const selectedRadioCategoryInscription = document.querySelector('input[type="radio"][name="category_inscription_id"]:checked');
         const selectedRadioPaymentMethod = document.querySelector('input[type="radio"][name="payment_method"]:checked');
 
@@ -46,13 +50,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         if(selectedRadioPaymentMethod.value === 'Transferencia/Depósito') {
-          const exemptCategories = ['3', '5', '6']; // Categorías que no requieren validación
-          if (exemptCategories.includes(categoryRadioButtons.value)) {
+          const exemptCategories = ['1', '2', '4'];
+          if (exemptCategories.includes(selectCategoryRadioButtons.value)) {
               if (!validarArchivoFilePond('voucher_file', "Debe adjuntar un comprobante de transferencia o depósito")) {
                   return false;
               }
           }
-      }
+        }
 
         if(selectedRadioCategoryInscription.value === '5' && document.getElementById('specialcode_verify').value === ''){
             alert('Debe validar la cuota especial');
