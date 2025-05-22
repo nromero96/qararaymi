@@ -35,9 +35,11 @@ document.addEventListener("DOMContentLoaded", function () {
         const categoriasPermitidas = ['1', '2', '3', '4','5','6'];
 
         if (categoriasPermitidas.includes(selectedRadioCategoryInscription.value)) {
-            if (!validarArchivoFilePond('document_file', "Debe adjuntar documento probatorio de categoría (Título, Constancia, Carnet profesional).")) {
-                return false;
-            }
+
+            // if (!validarArchivoFilePond('document_file', "Debe adjuntar documento probatorio de categoría (Título, Constancia, Carnet profesional).")) {
+            //     return false;
+            // }
+
         }
 
         if (selectedRadioPaymentMethod === null) {

@@ -34,7 +34,7 @@ class SpecialCodeController extends Controller
                     ->where('inscriptions.status', '!=', 'Rechazado');
             })
             ->groupBy('special_codes.id', 'special_codes.code', 'special_codes.amount', 'special_codes.description', 'special_codes.status', 'special_codes.payment_required', 'special_codes.quantity', 'special_codes.expiration', 'special_codes.created_at', 'special_codes.updated_at')
-            ->orderBy('special_codes.id', 'desc')
+            ->orderBy('special_codes.code', 'asc')
             ->get();
 
 
