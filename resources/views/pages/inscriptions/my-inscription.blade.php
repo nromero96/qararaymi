@@ -341,21 +341,6 @@
                                     </div>
 
                                     <div id="dv_tranfer" class="mt-3">
-                                        <div class="row border-bottom border-top mx-0 mx-sm-5 py-2">
-                                            <div class="col-md-3">
-                                                <img src="{{ asset('assets/img/bcp-logo.png') }}" style="width: 100px;border-radius: 10px;">
-                                            </div>
-                                            <div class="col-md-3">
-                                                <b>Cta. Cte. Dólares:</b><br>193-7134991-1-24
-                                            </div>
-                                            <div class="col-md-4">
-                                                <b>CCI:</b><br>002-193-007134991124-19
-                                            </div>
-                                            <div class="col-md-2">
-                                                <b>Código SWIFT:</b><br>BCPLPEPL
-                                            </div>
-                                        </div>
-
                                         <div class="row border-bottom mx-0 mx-sm-5 py-2 mb-3">
                                             <div class="col-md-3">
                                                 <img src="{{ asset('assets/img/scotiabank.png') }}" style="width: 130px;border-radius: 10px;">
