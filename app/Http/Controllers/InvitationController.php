@@ -91,7 +91,7 @@ class InvitationController extends Controller
         $fechaactual = 'Lima, ' . $fechaactual;
 
         $content = <<<EOD
-            <p style="font-size:15px;text-align:center; color:#c40000;"><img src="{$logo}" alt="logo" width="280" height="47" /><br><b style="color:red;font-size:18px;text-align:center;">Q´ARA RAYMI 2025</b><br><b style="color:blue;font-size:14px;text-align:center;">X CONGRESO NACIONAL CLÍNICO TERAPÉUTICO</b><br><b style="color:#000;font-size:11px;text-align:center;">Edición Presencial</b><br><b style="color:#000;font-size:12px;text-align:center;">Swissôtel Lima, del 27 al 30 de agosto 2025</b><br></p>
+            <p style="font-size:15px;text-align:center; color:#c40000;"><img src="{$logo}" alt="logo" width="280" height="47" /><br><b style="color:red;font-size:18px;text-align:center;">Q´ARA RAYMI 2025</b><br><b style="color:blue;font-size:14px;text-align:center;">IX CONGRESO NACIONAL CLÍNICO TERAPÉUTICO</b><br><b style="color:#000;font-size:12px;text-align:center;">Swissôtel Lima, del 27 al 30 de agosto 2025</b><br></p>
             <p>{$fechaactual}</p>
             <br>
             <p>Señor(a) Doctor(a)</p>
