@@ -245,7 +245,7 @@
                         <div class="alert alert-success text-center mb-0" role="alert">
                             <p class="mb-1"><b>¡Invitación generada y enviada con éxito!</b></p>
                             <p class="mb-0">Por favor, revisa tu correo electrónico.</p>
-                            <a href="https://radla2024.org/carta-de-invitacion/" class="btn btn-primary mt-2">Solicitar Nuevo</a>
+                            <a href="https://www.cidermperu.org/ix-congreso-nacional-qara-raymi-2025/#1742395141777-32b74297-dae6" class="btn btn-primary mt-2">Solicitar Nuevo</a>
                         </div>
                         `;
 
