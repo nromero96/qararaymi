@@ -223,7 +223,7 @@ class SpecialCodeController extends Controller
         if ($specialcode->payment_required == 'Si') {
             $amount = $specialcode->amount;
         } else {
-            $amount = 0;
+            $amount = $specialcode->amount;
         }
 
         return response()->json([

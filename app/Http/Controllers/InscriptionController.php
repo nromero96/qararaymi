@@ -719,9 +719,19 @@ class InscriptionController extends Controller
             $inscription->user_id = $iduser;
             $inscription->category_inscription_id = $request->category_inscription_id;
 
-            $category_inscription = CategoryInscription::find($request->category_inscription_id);
-
-            $inscription->price_category = $category_inscription->price;
+            if($inscription->category_inscription_id == 5){
+                //Buscar el codigo especial y obtener el monto
+                $specialcode = SpecialCode::where('code', $request->specialcode)->first();
+                if($specialcode){
+                    $inscription->price_category = $specialcode->amount;
+                }else{
+                    return redirect()->route('inscriptions.myinscription')->with('error', 'El código especial no existe o no es válido');
+                }
+            }else{
+                $category_inscription = CategoryInscription::find($request->category_inscription_id);
+                $inscription->price_category = $category_inscription->price;
+            }
+            
             $inscription->price_accompanist = 0;
             $inscription->total = $inscription->price_category + $inscription->price_accompanist;
             $inscription->special_code = $request->specialcode;
