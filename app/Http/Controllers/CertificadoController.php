@@ -33,7 +33,7 @@ class CertificadoController extends Controller
 
             // set document information
             $pdf->SetCreator(PDF_CREATOR);
-            $pdf->SetAuthor('RADLA LIMA 2024');
+            $pdf->SetAuthor('Q’ARA RAYMI 2025');
             $pdf->SetTitle('CERTIFICADO DE ASISTENCIA: '.$inscription->name.' '.$inscription->lastname.' '.$inscription->second_lastname);
             $pdf->SetSubject('CERTIFICADO DE ASISTENCIA');
 
@@ -85,7 +85,7 @@ class CertificadoController extends Controller
 
         }else{
 
-            echo "No tienes un certificado de asistencia disponible, si crees que es un error <a href='https://radla2024.org/contacto/'>contactanos</a>";
+            echo "No tienes un certificado de asistencia disponible, si crees que es un error <a href='https://www.cidermperu.org/ix-congreso-nacional-qara-raymi-2025/#tab-contacto'>contactanos</a>";
 
         }
 
@@ -107,7 +107,7 @@ class CertificadoController extends Controller
 
         // set document information
         $pdf->SetCreator(PDF_CREATOR);
-        $pdf->SetAuthor('RADLA 2024');
+        $pdf->SetAuthor('Q’ARA RAYMI 2025');
         $pdf->SetTitle('Certificado de Asistencia');
         $pdf->SetSubject('Información');
 

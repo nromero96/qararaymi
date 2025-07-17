@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return false;
         }
 
-        const categoriasPermitidas = ['4'];
+        const categoriasPermitidas = ['4', '7'];
 
         if (categoriasPermitidas.includes(selectedRadioCategoryInscription.value)) {
             if (!validarArchivoFilePond('document_file', "Debe adjuntar documento probatorio de categoría (Título, Constancia, Carnet profesional).")) {
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         if(selectedRadioPaymentMethod.value === 'Transferencia/Depósito') {
-          const exemptCategories = ['1', '2', '4'];
+          const exemptCategories = ['1', '2', '4', '7'];
           if (exemptCategories.includes(selectCategoryRadioButtons.value)) {
               if (!validarArchivoFilePond('voucher_file', "Debe adjuntar un comprobante de transferencia o depósito")) {
                   return false;
@@ -195,7 +195,7 @@ function handleCategoryRadioButtons(){
     }
 
 
-    if(selectedValueCategory === '4'){
+    if(selectedValueCategory === '4' || selectedValueCategory === '7'){
 
       //Document file required
       dvDocumentFile.classList.remove('d-none');
