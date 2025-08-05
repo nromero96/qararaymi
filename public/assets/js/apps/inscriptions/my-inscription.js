@@ -49,14 +49,28 @@ document.addEventListener("DOMContentLoaded", function () {
             return false;
         }
 
-        if(selectedRadioPaymentMethod.value === 'Transferencia/Depósito') {
-          const exemptCategories = ['1', '2', '4', '7'];
-          if (exemptCategories.includes(selectCategoryRadioButtons.value)) {
-              if (!validarArchivoFilePond('voucher_file', "Debe adjuntar un comprobante de transferencia o depósito")) {
-                  return false;
-              }
-          }
+        // if(selectedRadioPaymentMethod.value === 'Transferencia/Depósito') {
+        //   const exemptCategories = ['1', '2', '4', '7'];
+        //   if (exemptCategories.includes(selectCategoryRadioButtons.value)) {
+        //       if (!validarArchivoFilePond('voucher_file', "Debe adjuntar un comprobante de transferencia o depósito")) {
+        //           return false;
+        //       }
+        //   }
+        // }
+
+        if (selectedRadioPaymentMethod.value === 'Transferencia/Depósito') {
+            const exemptCategories = ['1', '2', '4', '7'];
+            const selectedCategory = selectCategoryRadioButtons.value;
+            const isRequiredFor5 = selectedCategory === '5' && selectCategoryRadioButtons.dataset.reqcompr === 'Si';
+
+            if (exemptCategories.includes(selectedCategory) || isRequiredFor5) {
+                if (!validarArchivoFilePond('voucher_file', "Debe adjuntar un comprobante de transferencia o depósito")) {
+                    return false;
+                }
+            }
         }
+
+
 
         if(selectedRadioCategoryInscription.value === '5' && document.getElementById('specialcode_verify').value === ''){
             alert('Debe validar la cuota especial');
@@ -323,13 +337,19 @@ btnValidateSpecialCode.addEventListener('click', function(){
           btnValidateSpecialCode.classList.add('d-none');
           specialCodeVerify.value = 'valid';
           radioCategory.setAttribute('data-catprice', Math.floor(response.price));
+          radioCategory.setAttribute('data-reqcompr',response.payment_required);
 
           
 
           //Ocultar divs que no se necesitan
           dvDocumentFile.classList.add('d-none');
           dv_invoice.classList.add('d-none');
-          dv_payment.classList.add('d-none');
+
+          if(response.payment_required == 'Si'){
+            dv_payment.classList.remove('d-none');
+          }else{
+            dv_payment.classList.add('d-none');
+          }
 
 
         } else {
