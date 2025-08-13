@@ -64,7 +64,7 @@
     <div class="container">
         <h2>INSCRIPCIÓN # {{ $datainscription->id }}: <span style="color:green;">Confirmado</span></h2>
         <p>Estimado(a) <b>{{ $userinfo->name }} {{ $userinfo->lastname }} {{ $userinfo->second_lastname }}</b>,</p>
-        <p>Le informamos que su inscripción para el <b>IX CONGRESO NACIONAL CLÍNICO TERAPÉUTICO Q’ARA RAYMI 2025</b> ha sido confirmado. El congreso se celebrará del 27 al 30 de agosto 2025, en el Swissôtel Lima.</p>
+        <p>Le informamos que su inscripción para el <b>IX CONGRESO NACIONAL CLÍNICO TERAPÉUTICO Q’ARA RAYMI 2025</b> ha sido confirmada. El congreso se celebrará del 27 al 30 de agosto 2025, en el Swissôtel Lima.</p>
 
         <!-- Título "Detalle de tu Inscripción" -->
         <h3>Detalle de su inscripción</h3>
