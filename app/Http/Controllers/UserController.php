@@ -8,6 +8,10 @@ use Spatie\Permission\Models\Role;
 use App\Models\Country;
 use App\Models\Inscription;
 
+use App\Mail\RecordatorioInscripcionMail;
+use Illuminate\Support\Facades\Mail;
+use App\Models\ReminderLog;
+
 use Image;
 
 class UserController extends Controller
@@ -260,34 +264,51 @@ class UserController extends Controller
 
 
     public function unenrolled()
-{
-    $data = [
-        'category_name' => 'users',
-        'page_name' => 'usersunenrolled',
-        'has_scrollspy' => 0,
-        'scrollspy_offset' => '',
-    ];
+    {
+        $data = [
+            'category_name' => 'users',
+            'page_name' => 'usersunenrolled',
+            'has_scrollspy' => 0,
+            'scrollspy_offset' => '',
+        ];
 
-    $listforpage = request()->query('listforpage') ?? 10; // cantidad por página
-    $search = request()->query('search');
+        $listforpage = request()->query('listforpage') ?? 10; // cantidad por página
+        $search = request()->query('search');
 
-    $users = User::whereDoesntHave('inscriptions')
-        ->when($search, function ($query, $search) {
-            $search = str_replace(' ', '%', $search);
-            $query->where('id', 'LIKE', "%{$search}%")
-                  ->orWhere('email', 'LIKE', "%{$search}%")
-                  ->orWhere('status', 'LIKE', "%{$search}%")
-                  ->orWhereRaw('CONCAT(COALESCE(name, ""), " ", COALESCE(lastname, ""), " ", COALESCE(second_lastname, "")) LIKE ?', ["%{$search}%"]);
-        })
-        ->orderBy('id', 'desc')
-        ->paginate($listforpage);
+        $users = User::whereDoesntHave('inscriptions')
+            ->when($search, function ($query, $search) {
+                $search = str_replace(' ', '%', $search);
+                $query->where('id', 'LIKE', "%{$search}%")
+                    ->orWhere('email', 'LIKE', "%{$search}%")
+                    ->orWhere('status', 'LIKE', "%{$search}%")
+                    ->orWhereRaw('CONCAT(COALESCE(name, ""), " ", COALESCE(lastname, ""), " ", COALESCE(second_lastname, "")) LIKE ?', ["%{$search}%"]);
+            })
+            ->orderBy('id', 'desc')
+            ->paginate($listforpage);
 
-    return view('pages.user.unenrolled')
-        ->with($data)
-        ->with('users', $users);
-}
+        return view('pages.user.unenrolled')
+            ->with($data)
+            ->with('users', $users);
+    }
 
 
+    public function enviarRecordatorio($id)
+    {
+        $user = User::findOrFail($id);
+
+        // Enviar correo
+        Mail::to($user->email)->send(new RecordatorioInscripcionMail($user));
+
+        // Registrar envío
+        ReminderLog::create([
+            'user_id' => $user->id,
+            'email'   => $user->email,
+            'type'    => 'recordatorio_inscripcion',
+            'sent_at' => now(),
+        ]);
+
+        return back()->with('success', 'Recordatorio enviado correctamente.');
+    }
 
 
 }

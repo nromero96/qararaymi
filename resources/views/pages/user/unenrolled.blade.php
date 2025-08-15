@@ -48,7 +48,7 @@
                                         <th scope="col">{{__("Rol")}}</th>
                                         <th scope="col">{{__("Fecha Registro")}}</th>
                                         <th class="text-center" scope="col">{{__("Estado")}}</th>
-                                        <th class="col">Mail(s)</th>
+                                        <th class="col">Mail</th>
                                         <th class="text-center" scope="col"></th>
                                     </tr>
                                 </thead>
@@ -97,7 +97,13 @@
                                                 1
                                             </td>
                                             <td class="text-center">
-                                                -
+                                                {{-- <form action="{{ route('users-unenrolled.enviar-recordatorio', $item->id) }}" method="POST">
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-sm btn-primary"
+                                                        onclick="return confirm('¿Enviar recordatorio a {{ $item->name }}?')">
+                                                        Enviar recordatorio
+                                                    </button>
+                                                </form> --}}
                                             </td>
                                         </tr>
                                     @endforeach
