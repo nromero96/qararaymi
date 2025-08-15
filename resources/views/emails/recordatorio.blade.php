@@ -1,17 +1,13 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<html>
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="x-apple-disable-message-reformatting" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Complete su inscripción – QARA RAYMI 2025</title>
+    
     <style>
       body { margin:0; padding:0; width:100% !important; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%;}
       table { border-collapse:collapse; }
       img { border:0; line-height:100%; outline:none; text-decoration:none; }
       a { text-decoration:none; }
-      .wrapper { width:100%; background-color:#0b1220; background-image: linear-gradient(180deg, #0b1220 0%, #0f1b33 100%); padding:24px 0; }
+      .wrapper { width:100%; background-color:#ffffff; background-image: linear-gradient(180deg, #ffffff 0%, #ffffff 100%); padding:24px 0; }
       .container { width:100%; max-width:600px; margin:0 auto; }
       .card { background:#ffffff; border-radius:16px; overflow:hidden; box-shadow:0 12px 28px rgba(5,16,44,.18); }
       .header { padding:28px 28px 16px 28px; background:linear-gradient(135deg,#0a7cff, #6236ff); color:#fff; }
@@ -44,7 +40,7 @@
     <div style="display:none; overflow:hidden; line-height:1; max-height:0; max-width:0; opacity:0; mso-hide:all;">
       Complete su inscripción al Congreso Q´ARA RAYMI 2025 en pocos pasos.
     </div>
-    <table role="presentation" class="wrapper" width="100%" cellpadding="0" cellspacing="0" bgcolor="#0b1220">
+    <table role="presentation" class="wrapper" width="100%" cellpadding="0" cellspacing="0" bgcolor="#ffffff">
       <tr>
         <td align="center">
           <table role="presentation" class="container" width="100%" cellpadding="0" cellspacing="0">
@@ -97,11 +93,11 @@
                             <table role="presentation" width="100%">
                               <tr>
                                 <td width="44" valign="top" style="padding-right:10px;">
-                                  <img src="https://my.qararaymi.org/assets/img/whatsapp.jpg" width="40" height="40" alt="Soporte" style="display:block;border-radius:8px;" />
+                                  <img src="https://my.qararaymi.org/assets/img/whatsapp.png" width="40" height="40" alt="Soporte" style="display:block;border-radius:8px;" />
                                 </td>
                                 <td valign="top" style="font-size:14px; color:#374151;">
                                   <strong>¿Necesita ayuda?</strong><br/>
-                                  Escríbanos por WhatsApp a <a href="https://wa.me/51983481269" target="_blank" rel="noopener"><strong>983 481 269</strong></a> – <em>Millie Estrada</em>.
+                                  Escríbanos por WhatsApp a <strong>983 481 269</strong> – <em>Millie Estrada</em>.
                                 </td>
                               </tr>
                             </table>
@@ -119,8 +115,7 @@
                       <p style="margin:0;">© 2025 Comité Organizador – Q´ARA RAYMI 2025</p>
                       <p style="margin:8px 0 0 0;">Este es un mensaje automatizado. Si ya completó su inscripción, puede ignorar este correo.</p>
                       <div class="social" style="margin:12px 0 24px 0;">
-                        <a href="https://my.qararaymi.org/register" target="_blank" rel="noopener">Inscribirme</a> ·
-                        <a href="https://wa.me/51983481269" target="_blank" rel="noopener">WhatsApp</a>
+                        -
                       </div>
                     </td>
                   </tr>

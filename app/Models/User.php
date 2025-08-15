@@ -70,4 +70,10 @@ class User extends Authenticatable
         return $this->hasMany(Inscription::class, 'user_id');
     }
 
+    public function reminderLogs()
+    {
+        return $this->hasMany(ReminderLog::class);
+    }
+
+
 }

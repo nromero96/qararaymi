@@ -28,6 +28,8 @@ class RecordatorioInscripcionMail extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.recordatorio');
+        return $this->view('emails.recordatorio')
+        ->subject('Complete su inscripción al Congreso Q´ARA RAYMI 2025');
+
     }
 }

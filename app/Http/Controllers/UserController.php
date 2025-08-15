@@ -276,15 +276,19 @@ class UserController extends Controller
         $search = request()->query('search');
 
         $users = User::whereDoesntHave('inscriptions')
-            ->when($search, function ($query, $search) {
-                $search = str_replace(' ', '%', $search);
-                $query->where('id', 'LIKE', "%{$search}%")
-                    ->orWhere('email', 'LIKE', "%{$search}%")
-                    ->orWhere('status', 'LIKE', "%{$search}%")
-                    ->orWhereRaw('CONCAT(COALESCE(name, ""), " ", COALESCE(lastname, ""), " ", COALESCE(second_lastname, "")) LIKE ?', ["%{$search}%"]);
-            })
-            ->orderBy('id', 'desc')
-            ->paginate($listforpage);
+    ->withCount('reminderLogs') // <-- Cuenta los recordatorios enviados
+    ->when($search, function ($query, $search) {
+        $search = str_replace(' ', '%', $search);
+        $query->where(function ($q) use ($search) {
+            $q->where('id', 'LIKE', "%{$search}%")
+              ->orWhere('email', 'LIKE', "%{$search}%")
+              ->orWhere('status', 'LIKE', "%{$search}%")
+              ->orWhereRaw('CONCAT(COALESCE(name, ""), " ", COALESCE(lastname, ""), " ", COALESCE(second_lastname, "")) LIKE ?', ["%{$search}%"]);
+        });
+    })
+    ->orderBy('id', 'desc')
+    ->paginate($listforpage);
+
 
         return view('pages.user.unenrolled')
             ->with($data)

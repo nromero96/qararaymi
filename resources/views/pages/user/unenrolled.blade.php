@@ -94,16 +94,16 @@
                                                 <span class="badge {{$item->status == 'active' ? 'badge-light-success' : 'badge-light-danger'}} text-capitalize">{{$item->status}}</span>
                                             </td>
                                             <td class="text-center">
-                                                1
+                                                {{ $item->reminder_logs_count }}
                                             </td>
                                             <td class="text-center">
-                                                {{-- <form action="{{ route('users-unenrolled.enviar-recordatorio', $item->id) }}" method="POST">
+                                                <form action="{{ route('users-unenrolled.enviar-recordatorio', $item->id) }}" method="POST">
                                                     @csrf
                                                     <button type="submit" class="btn btn-sm btn-primary"
                                                         onclick="return confirm('¿Enviar recordatorio a {{ $item->name }}?')">
                                                         Enviar recordatorio
                                                     </button>
-                                                </form> --}}
+                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach
