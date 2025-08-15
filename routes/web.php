@@ -124,6 +124,7 @@ Route::group(['middleware' => ['auth', 'check.inscription','ensureStatusActive']
 
     //Users
     Route::resource('users', UserController::class)->names('users');
+    Route::get('users-unenrolled', [UserController::class, 'unenrolled'])->name('users.unenrolled');
 
     //Roles
     Route::resource('roles', RoleController::class)->names('roles');
