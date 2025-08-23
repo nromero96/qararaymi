@@ -386,6 +386,14 @@
                             </div>
 
                             <div class="col-12 text-center">
+
+                                
+
+                                <div class="alert alert-danger" role="alert">
+                                    <h6 class="text-danger text-cener border-1 mb-0"><b class="text-uppercase"><u>NOTA:</u>  Cena de Clausura Sábado 30 de Agosto - Agotado</b></h6>
+                                </div>
+
+
                                 <button type="submit" class="btn btn-primary btn-lg" id="btnSubInscription">{{__("Inscribirme Ahora")}}</button>
                             </div>
                         </form>

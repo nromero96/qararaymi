@@ -117,6 +117,9 @@
         <!-- Mensaje de validación de inscripción -->
         <p><strong style="color:red;"><em>En un plazo de 72 horas enviaremos mensaje confirmando su inscripción.</em><strong></p>
         @endif
+
+        <p style="background: #ffd1d1;padding: 6px 10px;text-align: center;border-radius: 8px;"><strong style="color:red;"><u>NOTA:</u>  CENA DE CLAUSURA SÁBADO 30 DE AGOSTO - AGOTADO<strong></strong></strong></p>
+
         <!-- Contacto de soporte -->
         <p>Para mayores detalles, puede contactarse con nosotros a través del e-mail <b>inscripciones@qararaymi.org</b></p><br>
 
