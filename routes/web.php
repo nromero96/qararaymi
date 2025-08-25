@@ -51,8 +51,8 @@ Route::get('/', function () {
 
 //register
 Route::get('/register', function () {
-    //return view('auth.register');
-    return view('pages.inscriptions.inscripcion-cerrado');
+    return view('auth.register');
+    //return view('pages.inscriptions.inscripcion-cerrado');
 });
 
 //password recovery

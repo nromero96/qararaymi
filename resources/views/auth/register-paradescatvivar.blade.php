@@ -7,6 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h6 style="text-align: center;color:red;">INSCRIPCIONES EN SEDE A PARTIR DEL MIERCOLES 26 AGOSTO DESDE LAS 7:30 HRS.</h6>
+    <h5 style="text-align: center;color:red;">INSCRIPCIONES EN SEDE A PARTIR DEL MIERCOLES 26 AGOSTO DESDE LAS 7:30 HRS.</h5>
 </body>
 </html>
