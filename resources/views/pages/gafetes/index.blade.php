@@ -78,7 +78,7 @@
                                         <th scope="col" class="px-2"><b>{{__("Participante")}}</b></th>
                                         <th scope="col" class="px-2"><b>{{__("País")}}</b></th>
                                         <th scope="col" class="px-2"><b>{{__("Asistencía")}}</b></th>
-                                        <th scope="col" class="px-1 text-center" style="width: 135px;"><b>{{__("Gaféte/Solapín")}}</b></th>
+                                        <th scope="col" class="px-1 text-center" style="width: 135px;"><b>{{__("Certificado")}}</b></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -138,12 +138,13 @@
                                                     }
                                                 @endphp
 
-                                                <a href="javascript:;" class="btn btn-primary px-1 py-1 d-block btngaftpart {{ $btngaftassis }}">
+                                                <a href="{{ route('certificates.mycertificate',$inscription->id) }}" target="_blank" class="btn btn-primary px-1 py-1 d-block btngaftpart {{ $btngaftassis }}">
                                                     <svg width="21" height="21" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M21 5H3a1 1 0 0 0-1 1v3.5h.6a2.5 2.5 0 0 1 0 5H2V18a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1v-3.5h-.1a2.5 2.5 0 0 1 0-5h.1V6a1 1 0 0 0-1-1Z"></path>
                                                         <path stroke-dasharray="3 3" d="M15 5v14"></path>
                                                     </svg>
-                                                    Participante
+                                                    {{-- Participante --}}
+                                                    Certificado
                                                 </a>
 
                                                 {{-- background-image: url({{ asset('assets/img/solapin-gaf-bg-35273.jpg') }}); --}}
@@ -327,34 +328,34 @@
 
         //action class btngaftpart 
         document.querySelectorAll(".btngaftpart").forEach(function (button) {
-            button.addEventListener("click", function (event) {
-                event.preventDefault();
+            // button.addEventListener("click", function (event) {
+            //     event.preventDefault();
 
-                // Obtener el elemento tr donde se hizo clic
-                const trElement = this.closest('tr');
+            //     // Obtener el elemento tr donde se hizo clic
+            //     const trElement = this.closest('tr');
 
-                // Obtener el elemento con la clase 'solapinparti' dentro del tr actual
-                const elementToCapture = trElement.querySelector('.solapinparti');
+            //     // Obtener el elemento con la clase 'solapinparti' dentro del tr actual
+            //     const elementToCapture = trElement.querySelector('.solapinparti');
 
-                elementToCapture.style.display = 'block';
+            //     elementToCapture.style.display = 'block';
 
-                // Capturar el elemento 'solapinparti' dentro del tr donde se hizo clic
-                html2canvas(elementToCapture).then(function (canvas) {
-                    const image = canvas.toDataURL("image/png");
+            //     // Capturar el elemento 'solapinparti' dentro del tr donde se hizo clic
+            //     html2canvas(elementToCapture).then(function (canvas) {
+            //         const image = canvas.toDataURL("image/png");
 
-                    printJS({
-                        printable: image,
-                        type: "image",
-                        imageStyle: "position:absolute; top:0; left:197px; margin:0;width:398px;",
-                        onPrintDialogClose: function () {
-                            // Aquí puedes realizar acciones adicionales después de que se cierra el diálogo de impresión
-                        },
-                    });
+            //         printJS({
+            //             printable: image,
+            //             type: "image",
+            //             imageStyle: "position:absolute; top:0; left:197px; margin:0;width:398px;",
+            //             onPrintDialogClose: function () {
+            //                 // Aquí puedes realizar acciones adicionales después de que se cierra el diálogo de impresión
+            //             },
+            //         });
 
-                    elementToCapture.style.display = 'none';
+            //         elementToCapture.style.display = 'none';
 
-                });
-            });
+            //     });
+            // });
         });
 
         //action class btngaftpart 
