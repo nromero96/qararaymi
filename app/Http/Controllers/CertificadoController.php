@@ -52,7 +52,8 @@ class CertificadoController extends Controller
             $pdf->SetDisplayMode('fullpage', 'SinglePage', 'UseNone');
             $img_file = public_path('assets/img/bg-certificado-oficial.jpg');
 
-            $pdf->AddPage('L', 'A4');
+            //$pdf->AddPage('L', 'A4');
+            $pdf->AddPage('L', array(297, 230));
             // Establecer el margen y la imagen para la próxima página
             $pdf->SetAutoPageBreak(false, 0);
             $pdf->Image($img_file, 0, 0, 298, '', '', '', '', false, 300, '', false, false, 0);
@@ -72,7 +73,7 @@ class CertificadoController extends Controller
             $texto .= '</p>';
 
             //$pdf->writeHTML($texto, true, false, 127, false, 'C');
-            $pdf->writeHTMLCell(0, false, false, 82, $texto, 0, 1, 0, true, 'C', true);
+            $pdf->writeHTMLCell(0, false, false, 109, $texto, 0, 1, 0, true, 'C', true);
 
                 // Agregar el ID con su respectivo formato
             $pdf->SetFont('tahomab', 'B', 12); // Fuente dejavusans, tamaño 12
