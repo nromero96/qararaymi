@@ -73,7 +73,7 @@ class CertificadoController extends Controller
             $texto .= '</p>';
 
             //$pdf->writeHTML($texto, true, false, 127, false, 'C');
-            $pdf->writeHTMLCell(0, false, false, 109, $texto, 0, 1, 0, true, 'C', true);
+            $pdf->writeHTMLCell(0, false, false, 111.5, $texto, 0, 1, 0, true, 'C', true);
 
                 // Agregar el ID con su respectivo formato
             $pdf->SetFont('tahomab', 'B', 12); // Fuente dejavusans, tamaño 12

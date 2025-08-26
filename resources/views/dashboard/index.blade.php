@@ -47,14 +47,14 @@
                       <h5 class="card-title mb-0">{{__("Evento empieza en:")}}</h5>
                       {{-- Aqui el contador --}}
   
-                      {{-- <div id="msmencurso" class="pt-2 pb-2" style="font-size: 17px;">
-                          30 y 31 de agosto de 2024
-                      </div> --}}
+                      <div id="msmencurso" class="pt-2 pb-2 d-none" style="font-size: 17px;">
+                          EN CURSO...
+                      </div>
   
                       <div id="contador" class="d-flex mb-1">
                           <div class="text-white"><span id="dias" style="font-size: 25px;font-weight: bolder;"></span> <small style="font-size: 15px;">DÍAS Y </small><span id="horas" style="font-size: 25px;font-weight: bolder;"></span> <small style="font-size: 15px;">HORAS</small></div>
                       </div>
-                      <a href="#" target="_blank" class="btn btn-light text-dark"><b>VER PROGRAMA</b></a>
+                      <a href="https://www.cidermperu.org/wp-content/uploads/2025/08/QARA-RAYMI-PROGRAMA-2025_250820_122734.pdf" target="_blank" class="btn btn-light text-dark"><b>VER PROGRAMA</b></a>
                     </div>
                   </div>
             </div>
@@ -144,7 +144,7 @@
         }
 
         function actualizarContador() {
-            const fechaLimite = new Date("2024-11-06T08:30:00");
+            const fechaLimite = new Date("2025-08-27T08:30:00");
             calcularTiempoRestante(fechaLimite);
         }
 
