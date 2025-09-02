@@ -138,14 +138,25 @@
                                                     }
                                                 @endphp
 
-                                                <a href="{{ route('certificates.mycertificate',$inscription->id) }}" target="_blank" class="btn btn-primary px-1 py-1 d-block btngaftpart {{ $btngaftassis }}">
+                                                {{-- <a href="{{ route('certificates.mycertificate',$inscription->id) }}" target="_blank" class="btn btn-primary px-1 py-1 d-block btngaftpart {{ $btngaftassis }}">
                                                     <svg width="21" height="21" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M21 5H3a1 1 0 0 0-1 1v3.5h.6a2.5 2.5 0 0 1 0 5H2V18a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1v-3.5h-.1a2.5 2.5 0 0 1 0-5h.1V6a1 1 0 0 0-1-1Z"></path>
                                                         <path stroke-dasharray="3 3" d="M15 5v14"></path>
                                                     </svg>
-                                                    {{-- Participante --}}
+                                                    <!--Participante --!> 
                                                     Certificado
-                                                </a>
+                                                </a> --}}
+
+                                                @if($inscription->assistance != null)
+
+                                                <form action="{{ route('gafetes.enviar-certificado', $inscription->id) }}" method="POST">
+                                                    @csrf
+                                                    <button type="submit" class="btn px-0 py-1 btn-sm btn-primary w-100"
+                                                        onclick="return confirm('¿Enviar recordatorio a {{ $inscription->solapin_name }}?')">
+                                                        ENVIAR <span class="badge badge-light bg-info px-2 py-0">{{$inscription->certificados_enviados}}</span>
+                                                    </button>
+                                                </form>
+                                                @endif
 
                                                 {{-- background-image: url({{ asset('assets/img/solapin-gaf-bg-35273.jpg') }}); --}}
                                                 <div class="solapinparti" style="display: none;">

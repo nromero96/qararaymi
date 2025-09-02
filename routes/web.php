@@ -204,6 +204,8 @@ Route::group(['middleware' => ['auth', 'check.inscription','ensureStatusActive']
     Route::get('gafete-for-participant/{id}', [GafeteController::class, 'gafeteForParticipant'])->name('gafetes.gafeteforparticipant');
     Route::get('gafete-for-accompanist/{id}', [GafeteController::class, 'gafeteForAccompanist'])->name('gafetes.gafeteforaccompanist');
 
+    Route::post('certificado/{id}/enviar-certificado', [GafeteController::class, 'enviarCertificado'])->name('gafetes.enviar-certificado');
+
     //exportar gafetes
     Route::get('exportar-gafetes', [GafeteController::class, 'exportListaBusquedaPdf'])->name('gafetes.exportpdf');
 

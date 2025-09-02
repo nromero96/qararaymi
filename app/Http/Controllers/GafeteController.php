@@ -6,6 +6,13 @@ use Illuminate\Http\Request;
 use App\Models\Inscription;
 use App\Models\Accompanist;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+
+use App\Mail\CertificadoMail;
+use Illuminate\Support\Facades\Mail;
+use App\Models\ReminderLog;
+use Illuminate\Support\Facades\DB;
+
 
 use TCPDF;
 
@@ -31,7 +38,12 @@ class GafeteController extends Controller
         $inscriptions = Inscription::join('category_inscriptions', 'inscriptions.category_inscription_id', '=', 'category_inscriptions.id')
                 ->join('users', 'inscriptions.user_id', '=', 'users.id')
                 ->join('accompanists', 'inscriptions.accompanist_id', '=', 'accompanists.id', 'left')
-                ->select('inscriptions.*', 'category_inscriptions.name as category_inscription_name', 'users.name as user_name', 'users.lastname as user_lastname', 'users.second_lastname as user_second_lastname', 'users.country as user_country', 'users.solapin_name as solapin_name', 'accompanists.accompanist_solapin')
+                ->select('inscriptions.*', 'category_inscriptions.name as category_inscription_name', 'users.name as user_name', 'users.lastname as user_lastname', 'users.second_lastname as user_second_lastname', 'users.country as user_country', 'users.solapin_name as solapin_name', 'accompanists.accompanist_solapin',
+                    // 👇 Subquery para contar envíos del certificado
+                    \DB::raw('(SELECT COUNT(*) 
+                   FROM reminder_logs rl 
+                   WHERE rl.user_id = users.id 
+                     AND rl.type = "certificado_participacion") as certificados_enviados'))
                 ->where('inscriptions.status', 'Pagado')
                 ->where(function ($query) use ($search) {
                         // Si la búsqueda comienza con #, buscar exactamente inscriptions.id
@@ -388,6 +400,31 @@ class GafeteController extends Controller
 
         return $pdf->Output('gafete.pdf', 'I');
 
+    }
+
+
+    public function enviarCertificado($id)
+    {
+
+        $inscription = Inscription::findOrFail($id);
+
+
+        $user_id = $inscription->user_id;
+
+        $user = User::findOrFail($user_id);
+
+        // Enviar correo
+        Mail::to($user->email)->send(new CertificadoMail($inscription));
+
+        // Registrar envío
+        ReminderLog::create([
+            'user_id' => $user->id,
+            'email'   => $user->email,
+            'type'    => 'certificado_participacion',
+            'sent_at' => now(),
+        ]);
+
+        return back()->with('success', 'Certificado enviado correctamente.');
     }
 
 
