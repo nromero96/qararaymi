@@ -48,7 +48,7 @@
                       {{-- Aqui el contador --}}
   
                       <div id="msmencurso" class="pt-2 pb-2 d-none" style="font-size: 17px;">
-                          EN CURSO...
+                          FINALIZADO
                       </div>
   
                       <div id="contador" class="d-flex mb-1">
@@ -58,6 +58,21 @@
                     </div>
                   </div>
             </div>
+
+
+            @if($myinscription)
+            <div class="col-sm-6 mb-3 mb-sm-3">
+                <div class="card mb-3 mb-sm-3">
+                    <div class="card-body">
+                        <h5 class="card-title"><b>CERTIFICADO</b></h5>
+                        <p class="card-text">Reconocimiento oficial por la participación.</p>
+                        <a href="{{ route('certificates.mycertificate', $myinscription->id )}}" class="btn btn-info p-1" target="_blank"><img src="{{ asset('assets/img/bg-certificado-imgprev.jpg')}}" class="w-100 mb-2 rounded-2"><br>
+                        <b>VER MI CERTIFICADO</b>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            @endif
 
             
 
