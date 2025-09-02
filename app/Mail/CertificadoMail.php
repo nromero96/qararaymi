@@ -31,22 +31,24 @@ class CertificadoMail extends Mailable
      * @return $this
      */
     public function build()
-    {
-        $user = User::find($this->inscription->user_id);
+{
+    $user = User::find($this->inscription->user_id);
 
-        $primerNombre = $user->name ?? '';
-        $apellidos    = $user->lastname ?? '';
+    $primerNombre = $user->name ?? '';
+    $apellidos    = $user->lastname ?? '';
 
-        $asunto = "{$primerNombre} {$apellidos} - CERTIFICADO DE PARTICIPACION CONGRESO QARA RAYMI 2025";
+    $asunto = "{$primerNombre} {$apellidos} - CERTIFICADO DE PARTICIPACION CONGRESO QARA RAYMI 2025";
 
-        $url = route('certificates.mycertificate', $this->inscription->id);
+    $url = route('certificates.mycertificate', $this->inscription->id);
 
-        return $this->view('emails.certificado')
-            ->with([
-                'nombre' => $primerNombre.' '.$apellidos,
-                'link_certificado' => $url,
-            ])
-            ->subject($asunto);
+    return $this->view('emails.certificado')
+        ->with([
+            'nombre' => $primerNombre.' '.$apellidos,
+            'link_certificado' => $url,
+        ])
+        ->subject($asunto)
+        ->replyTo(config('services.correonotificacion.inscripcion')) // correo al que deben responder
+        ->cc(config('services.correonotificacion.inscripcion')); // copia a otro correo
     }
 
 }
